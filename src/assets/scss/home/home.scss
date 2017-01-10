@@ -1,0 +1,161 @@
+@charset "utf-8";
+@import "../base/necessary.scss";
+html,body{
+  background: $white;
+}
+/*index*/
+.title{
+  color:$color_424242;
+  @include px2px(font-size,40);
+  padding:px2rem(60) 0 px2rem(34) px2rem(30);
+}
+.item{
+  padding-bottom: px2rem(74);
+  border-bottom: solid 1px $color_DBDBDB;
+  &.boutique{
+    ul{
+      height: 100%;
+      padding-bottom: 0;
+    }
+    a{
+      width: px2rem(334);
+    }
+    .scroll{
+      height: px2rem(257);
+    }
+  }
+  &.surprise{
+    &.activity{
+      .scroll{
+        height: px2rem(436);
+        ul{
+          height: px2rem(446);
+        }
+      }
+    }
+    &.list{
+      border-bottom: none;
+      padding-bottom:0;
+      .bottom_title{
+        .flex{
+          padding-bottom: px2rem(14);
+        }
+      }
+      ul{
+        padding: 0;
+      }
+      .scroll,ul,a{
+        height: auto;
+        width: auto;
+      }
+      .bg{
+        width: px2rem(690);
+        height: px2rem(436);
+      }
+      li{
+        display: block;
+        margin: 0 0 px2rem(30) 0;
+        padding: 0 px2rem(30);
+        &:last-child{
+          margin-bottom: 0;
+          a{
+            border-bottom: 0;
+          }
+        }
+        a{
+          border-bottom: solid 1px $color_DBDBDB;
+        }
+      }
+    }
+    .scroll{
+      height: px2rem(579);
+    }
+    ul{
+      height: px2rem(589);
+      a{
+        width: px2rem(655);
+        height: px2rem(436);
+      }
+    }
+  }
+}
+.scroll{
+  height: px2rem(315);
+  overflow-y:hidden;
+  ul{
+    height: px2rem(325);
+    padding:0 0 10px px2rem(7);
+    white-space: nowrap;
+    @extend .xoverflow_scroll;
+    font-size:0;
+    li{
+      display:inline-block;
+      height: 100%;
+      margin: 0 px2rem(11);
+      &:first-child{
+        margin-left:px2rem(23);
+      }
+      &:last-child{
+        margin-right:px2rem(23);
+      }
+      a{
+        display: block;
+        width: px2rem(315);
+        height: 100%;
+        text-decoration:none;
+        position:relative;
+        .bg{
+          height: 100%;
+        }
+        .text{
+          position: absolute;
+          left:0;
+          top:0;
+          width: 100%;
+          height: 100%;
+          color: #fff;
+          @include px2px(font-size,34);
+          text-align: center;
+        }
+      }
+
+    }
+  }
+}
+.bottom_title{
+  color:$color_424242;
+  h2{
+    line-height: px2rem(42);
+    max-height: px2rem(84);
+    @include clamp(2);
+    padding: px2rem(34) 0 px2rem(11) 0;
+    @include px2px(font-size,34);
+  }
+  .flex{
+    color:$color_9E9E9E;
+    @include px2px(font-size,28);
+    .flex_item{
+      line-height:2;
+    }
+    .right{
+      text-align: right;
+      color:$color_FC5D7B;
+      &:before{
+        content: '¥';
+        display: inline-block;
+        margin-right: px2rem(7);
+        @include px2px(font-size,22);
+        vertical-align: top;
+
+      }
+      &:after{
+        content: '起';
+        display: inline-block;
+        margin-left: px2rem(5);
+        @include px2px(font-size,22);
+        color:$color_9E9E9E;
+      }
+    }
+  }
+}
+

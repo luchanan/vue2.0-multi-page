@@ -1,0 +1,17 @@
+/*
+iphone3gs: 320px / 10 = 32px
+iphone4/5: 320px * 2 / 10 = 64px
+iphone6: 375px * 2 / 10 = 75px
+iphone6+: 414px * 3 / 10 = 124.2px
+ */
+$rem:75;/*基准数也就是html,font-size有关:设计稿大小为640,转变就是拿设计稿的实际距离除以基准数*/
+/*除了字体或者特殊要求需要用到的*/
+@function px2rem($px){
+    @return ($px/$rem)*1rem;
+}
+
+@function important(){
+  @return !important;
+}
+
+

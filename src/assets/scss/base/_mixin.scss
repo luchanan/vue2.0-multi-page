@@ -1,0 +1,79 @@
+/*针对字体*/
+@mixin px2px($name, $px) {
+  #{$name}: round($px / 2) * 1px;
+  [data-dpr="2"] & {
+    #{$name}: $px * 1px;
+  }
+  [data-dpr="2.5"] & {
+    #{$name}: round($px * 2.5 / 2) * 1px;
+  }
+  [data-dpr="2.75"] & {
+    #{$name}: round($px * 2.75 / 2) * 1px;
+  }
+  [data-dpr="3"] & {
+    #{$name}: round($px / 2 * 3) * 1px
+  }
+  [data-dpr="4"] & {
+    #{$name}: $px * 2px;
+  }
+}
+
+/*图片媒体查询*/
+@mixin retina($url) {
+  background-image: url($url+ '.png');
+  [data-dpr="2"] & {
+    background-image: url($url+ '@2x.png');
+  }
+  [data-dpr="3"] & {
+    background-image: url($url+ '@3x.png');
+  }
+}
+
+/*多行文字省略号*/
+@mixin clamp($num) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+}
+
+/*background-size rem数值转换*/
+@mixin bg_size_rem($x:auto,$y:auto) {
+  @if $x==auto{
+    $x:auto;
+  } @else {
+    $x:px2rem($x);
+  }
+  @if $y==auto{
+    $y:auto;
+  } @else {
+    $y:px2rem($y);
+  }
+  background-size: ($x, $y);
+}
+
+/*background-size px数值转换*/
+@mixin bg_size_px($x:auto,$y:auto) {
+  @if $x==auto{
+    $x:auto;
+  } @else {
+    $x:px2rem($x);
+  }
+  @if $y==auto{
+    $y:auto;
+  } @else {
+    $y:px2rem($y);
+  }
+  background-size: ($x, $y);
+}
+
+/*多行文字省略号*/
+@mixin padding_top($num:102) {
+  padding-top: px2rem($num);
+}
+
+@mixin padding_bottom($num:120) {
+  padding-bottom: px2rem($num);
+}
+

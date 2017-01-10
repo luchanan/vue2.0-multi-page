@@ -1,0 +1,56 @@
+.footer{
+  @extend .fixed;
+  border-top: solid 1px $color_DBDBDB;
+  background: $white;
+  bottom: 0;
+  li{
+    float: left;
+    width: 25%;
+    padding: px2rem(17) 0;
+    a{
+      &:after{
+        content: attr(data-font);
+        padding-top:px2rem(46);
+        display: block;
+        @include px2px(font-size,20);
+        text-align: center;
+        color:$color_9E9E9E;
+        background: url(../images/icon/home.png) no-repeat top center;
+        @include bg_size_px(36);
+        line-height: 1;
+      }
+      &.on{
+        &:after{
+          background: url(../images/icon/home_on.png) no-repeat top center;
+          @include bg_size_px(36);
+          color: $color_55C1DD;
+        }
+        &.destination{
+          &:after{
+            background-image: url(../images/icon/destination_on.png);
+          }
+        }
+        &.my{
+          &:after{
+            background-image: url(../images/icon/my_on.png);
+          }
+        }
+      }
+      &.destination{
+        &:after{
+          background-image: url(../images/icon/destination.png);
+        }
+      }
+      &.cart{
+        &:after{
+          background-image: url(../images/icon/cart.png);
+        }
+      }
+      &.my{
+        &:after{
+          background-image: url(../images/icon/my.png);
+        }
+      }
+    }
+  }
+}

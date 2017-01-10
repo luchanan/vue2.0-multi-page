@@ -1,0 +1,65 @@
+@charset "utf-8";
+@import "base/cssreset.scss";
+@import "base/necessary.scss";
+@import "base/common.scss";
+@import "base/header.scss";
+@import "base/footer.scss";
+/*warn begin:这里原本来要放在_extend.scss里面的，但是由于home.scss import _necessary.scss 而_necessary.scss import _extend.scss，导致背景图片路径怎么相对都是错误的，
+现在的解决方法是涉及图片路径的都放在这里，暂时过度，待找到原因
+*/
+.swiper-container{
+  /*padding-top:66.66666666666667%;/*500/700*/
+  height: px2rem(500);
+  a{
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-pagination{
+    &.swiper-pagination-bullets{
+      bottom: px2rem(20);
+      .swiper-pagination-bullet{
+        vertical-align: bottom;
+        width: px2rem(10);
+        height:px2rem(10);
+        margin:0 px2rem(10) 0 0 important();
+        opacity: 1;
+        background:url(../images/icon/dot.png) scroll no-repeat center center important();
+        @extend .contain;
+        &.swiper-pagination-bullet-active{
+          background:url(../images/icon/dot_on.png) scroll no-repeat center center important();
+          @extend .contain;
+        }
+      }
+    }
+  }
+}
+/*lazyload*/
+/*background lazyload style*/
+.bg_lazyload{
+  &[lazy=loading]{
+    background:url(../images/icon/lazy_load_loading.png) scroll no-repeat center center important();
+    background-size: px2rem(159) important();
+  }
+  &[lazy=error]{
+    background:url(../images/icon/lazy_load_fail.png) scroll no-repeat center center important();
+    background-size: px2rem(138) important();
+  }
+  &[lazy=loaded]{
+    @extend .cover;
+  }
+}
+/*img lazyload style*/
+.img_lazyload{
+  &[lazy=loading]{
+
+  }
+  &[lazy=error]{
+
+  }
+  &[lazy=loaded]{
+
+  }
+}
+/*lazyload*/
+/*warn ende*/
+
