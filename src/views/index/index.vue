@@ -59,13 +59,16 @@ export default{
     data () {
         return {
             swiperOption: {
-                autoplay: 5000,
+                autoplay: 50000,
                 pagination: '.swiper-pagination',
                 onInit: function (swiper) {
-                    console.log(swiper.bullets);
+                    if (swiper.slides.length > 0) {
+                        debugger
+                    }
+                    console.log(swiper);
                 },
                 onSlideNextEnd: function (swiper) {
-                    console.log(swiper.bullets);
+                    console.log(swiper);
                 }
             },
             indexData: []
