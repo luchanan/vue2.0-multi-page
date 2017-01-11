@@ -6,9 +6,9 @@
         <a href=""></a>
       </swipe-item>
     </swipe>-->
-    <swiper :options="swiperOption" id="cal">
+    <swiper :options="swiperOption" id="carrousel" ref="mySwiperA">
       <swiper-slide class="slide bg_lazyload" lazy="loading" v-for="banner in indexData.banner_list"
-                    v-bind:data-image="banner.image"></swiper-slide>
+                    v-bind:data-image="banner.image"><a href=""></a></swiper-slide>
       <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
     <div class="item boutique">
@@ -59,26 +59,37 @@ export default{
     data () {
         return {
             swiperOption: {
+                swiperSlides: 0,
                 autoplay: 50000,
+                notNextTick: true,
                 pagination: '.swiper-pagination',
                 onInit: function (swiper) {
-                    if (swiper.slides.length > 0) {
-                        debugger
-                    }
-                    console.log(swiper);
+                    console.log('b')
+                },
+                onSlideChangeStart: function () {
+
                 },
                 onSlideNextEnd: function (swiper) {
-                    console.log(swiper);
+                    // console.log(swiper);
                 }
             },
-            indexData: []
+            indexData: [],
+            swiperSlides: 0
+        }
+    },
+    computed: {
+        swiper () {
+            return this.$refs.mySwiperA.swiper
         }
     },
     mounted: function () {
-        this.$http.get('../../../static/api/Home/homepageV3.json').then((response) => {
+        this.$http.get('../../../static/api/home/homepageV3.json').then((response) => {
             // indexData，然后html就可以遍历
             console.log(response.data)
             this.indexData = response.data
+            // this.swiperSlides = response.data.banner_list.length
+            this.swiperOption.swiperSlides = response.data.banner_list.length
+            // console.log(this.swiperSlides)
         }, (response) => {
             console.log(response)
         })
