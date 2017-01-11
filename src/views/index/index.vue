@@ -64,7 +64,7 @@ export default{
                 notNextTick: true,
                 pagination: '.swiper-pagination',
                 onInit: function (swiper) {
-                    console.log('b')
+                    console.log(swiper.slides.length)// 0
                 },
                 onSlideChangeStart: function () {
 
@@ -87,9 +87,8 @@ export default{
             // indexData，然后html就可以遍历
             console.log(response.data)
             this.indexData = response.data
-            // this.swiperSlides = response.data.banner_list.length
-            this.swiperOption.swiperSlides = response.data.banner_list.length
-            // console.log(this.swiperSlides)
+            this.swiperSlides = response.data.banner_list.length
+            console.log(this.swiperSlides)// 2
         }, (response) => {
             console.log(response)
         })
