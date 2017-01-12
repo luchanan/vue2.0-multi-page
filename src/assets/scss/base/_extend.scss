@@ -3,7 +3,12 @@
   left: 0;
   width: 100%;
 }
-
+.relative{
+  position: relative;
+}
+.bg_white{
+  background: $white;
+}
 .pointer{
    cursor:pointer;
  }
@@ -46,6 +51,15 @@
 }
 .padding_b_120{
   padding-bottom: px2rem(120);
+}
+.padding_tb_120{
+  padding: px2rem(122) 0 px2rem(120) 0;
+}
+.margin_b_20{
+  margin-bottom: px2rem(20);
+}
+.text_center{
+  text-align: center;
 }
 .flex{
   display: flex;

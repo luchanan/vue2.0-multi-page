@@ -1,7 +1,8 @@
-import { Vue, $ } from 'js/base'
+import { Vue, $, Common } from 'js/base'
 import myHeader from '../../components/my/my-header.vue'
 import CommonFooter from '../../components/common/footer.vue'
-require('scss/my/my.scss')
+console.log(Common.isLogin)
+require('./scss/my.scss')
 import myCenter from './my.vue'
 var homeVue = new Vue({
     el: '#my',

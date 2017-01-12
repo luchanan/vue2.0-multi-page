@@ -1,7 +1,7 @@
 import { Vue, $ } from 'js/base'
 import homeHeader from '../../components/home/home-header.vue'
 import CommonFooter from '../../components/common/footer.vue'
-require('scss/home/home.scss')
+require('./scss/home.scss')
 import homeIndex from './index.vue'
 var homeVue = new Vue({
     el: '#home',

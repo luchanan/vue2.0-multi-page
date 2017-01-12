@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import $ from 'jquery'
-import C from './config'
+import Common from './Common'
 var vueResource = require('vue-resource')
 import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload)
 Vue.use(vueResource)
-// 导入全局的UI框架
+// 导入全局css,scss路径在webpack.base.confi.js配置了别名
 require('scss/common.scss')
 module.exports = {
-    Vue, $, C
+    Vue, $, Common
 }

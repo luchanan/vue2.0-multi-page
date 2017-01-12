@@ -61,5 +61,19 @@
   }
 }
 /*lazyload*/
-/*warn ende*/
+.arrow_right{
+  &:after{
+    content:'';
+    display: inline-block;
+    position:absolute;
+    right:0;
+    top:50%;
+    margin-top: px2rem(-12);
+    width:px2rem(15);
+    height:px2rem(25);
+    background: url(../images/icon/arrow_right.png) scroll no-repeat center center;
+    @extend .contain;
+  }
+}
+/*warn end*/
 

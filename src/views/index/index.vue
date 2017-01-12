@@ -54,27 +54,29 @@
     </div>
 </template>
 <script>
+import { Vue, $ } from 'js/base'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default{
     data () {
         return {
+            indexData: [],
             swiperOption: {
-                swiperSlides: 0,
                 autoplay: 50000,
                 notNextTick: true,
                 pagination: '.swiper-pagination',
                 onInit: function (swiper) {
-                    console.log(swiper.slides.length)// 0
+                    /* setTimeout(function () {
+                        console.log(swiper.slides.length)// 0
+                    }, 5000) */
                 },
                 onSlideChangeStart: function () {
 
                 },
                 onSlideNextEnd: function (swiper) {
+                    console.log(swiper.activeIndex)
                     // console.log(swiper);
                 }
-            },
-            indexData: [],
-            swiperSlides: 0
+            }
         }
     },
     computed: {
@@ -87,8 +89,7 @@ export default{
             // indexData，然后html就可以遍历
             console.log(response.data)
             this.indexData = response.data
-            this.swiperSlides = response.data.banner_list.length
-            console.log(this.swiperSlides)// 2
+            // console.log(response.data.banner_list.length)// 2
         }, (response) => {
             console.log(response)
         })
