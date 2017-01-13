@@ -54,29 +54,23 @@
     </div>
 </template>
 <script>
-import { Vue, $ } from 'js/base'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default{
     data () {
+        const self = this
         return {
-            indexData: [],
             swiperOption: {
-                autoplay: 50000,
+                swiperSlides: 0,
+                autoplay: 5000,
+                autoplayDisableOnInteraction: false,
                 notNextTick: true,
                 pagination: '.swiper-pagination',
-                onInit: function (swiper) {
-                    /* setTimeout(function () {
-                        console.log(swiper.slides.length)// 0
-                    }, 5000) */
-                },
-                onSlideChangeStart: function () {
-
-                },
-                onSlideNextEnd: function (swiper) {
-                    console.log(swiper.activeIndex)
-                    // console.log(swiper);
+                onSlideNextEnd: () => {
+                    this.swiperSlideEnd()
                 }
-            }
+            },
+            indexData: [],
+            swiperSlides: 0
         }
     },
     computed: {
@@ -89,7 +83,10 @@ export default{
             // indexData，然后html就可以遍历
             console.log(response.data)
             this.indexData = response.data
-            // console.log(response.data.banner_list.length)// 2
+            // 使用$nextTick来对更新后的mounted节点进行操作
+            this.$nextTick(function () {
+                this.swiperSlideEnd()
+            })
         }, (response) => {
             console.log(response)
         })
@@ -99,9 +96,23 @@ export default{
         swiperSlide
     },
     methods: {
+        swiperSlideEnd: function () {
+            // 这个this.swiper为computed的swiper
+            const ele = this.swiper.slides[this.swiper.activeIndex];
+            const imgSrc = ele.getAttribute('data-image')
+            console.log(imgSrc)// ../static/api/Home/images/banner1.jpg
+            if (imgSrc !== null) {
+                // 直接使用new Image()eslint会报错
+                const img = new window.Image()
+                img.src = imgSrc;
+                img.onload = function () {
+                    // 图片加载完毕
+                    ele.removeAttribute('data-image')
+                    ele.setAttribute('lazy', 'loaded')
+                    ele.style.cssText = 'background-image:url(' + imgSrc + ')'
+                }
+            }
+        }
     }
 }
 </script>
-<style lang="scss" scoped>
-  // @import '../../assets/scss/home/home.scss'
-</style>"
