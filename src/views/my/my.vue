@@ -2,15 +2,16 @@
   <div class="container padding_tb_120 my">
     <div class="summary margin_b_20 bg_white">
       <a class="flex flex_v_center info" href="#">
-        <div class="photo"><img src="./images/logined.jpg"></div>
+        <div class="photo"><img :src="isLogin?'./images/logined.jpg':'./images/nologin.png'"></div>
         <div class="flex_item arrow_right">
-          <h1>无尽的故事</h1>
-          <p>查看个人资料</p>
+          <h1 v-if="isLogin">{{my.nickname}}</h1>
+          <p v-if="isLogin">查看个人资料</p>
+          <p v-if="!isLogin" class="noLogin">未登录</p>
         </div>
       </a>
       <ul class="flex bottom">
-        <li class="flex_item"><a href="" data-count="1">优惠券</a></li>
-        <li class="flex_item"><a href="" data-count="1">我的点评</a></li>
+        <li class="flex_item"><a href="" :data-count="isLogin?my.coupon_amount:0">优惠券</a></li>
+        <li class="flex_item"><a href="" :data-count="isLogin?my.comment_amount:0">我的点评</a></li>
       </ul>
     </div>
     <ul class="flex order margin_b_20 bg_white">
@@ -18,16 +19,16 @@
         <a href="" data-font="全部订单"><em></em></a>
       </li>
       <li class="flex_item">
-        <a href="" data-font="待付款" class="paying"><em data-count="1"></em></a>
+        <a href="" data-font="待付款" class="paying"><em :data-count="isLogin?my.need_pay_amount:0"></em></a>
       </li>
       <li class="flex_item">
-        <a href="" data-font="待评价" class="comment"><em data-count="0"></em></a>
+        <a href="" data-font="待评价" class="comment"><em :data-count="isLogin?my.need_comment_amount:0"></em></a>
       </li>
     </ul>
     <ul class="item margin_b_20 bg_white">
       <li>
         <a href="" class="arrow_right flex flex_v_center">
-          <h1 class="flex_item">淘宝订单</h1>
+          <h1 class="flex_item"><span class="tb_icon" :data-count="isLogin?my.taobao_order_amount:0">淘宝订单</span></h1>
         </a>
       </li>
     </ul>
@@ -57,25 +58,32 @@
         </a>
       </li>
     </ul>
+    <common-footer footerIndex="3"></common-footer>
   </div>
 </template>
 <script>
+import { Vue, $, Common } from 'js/base'
+import CommonFooter from '../../components/common/footer.vue'
 export default{
     data () {
         return {
-            indexData: []
+            isLogin: Common.isLogin(),
+            my: []
         }
     },
     mounted: function () {
         this.$http.get('../../../static/api/center/getCenter.json').then((response) => {
             // indexData，然后html就可以遍历
+            response.data['isLogin'] = Common.isLogin()
             console.log(response.data)
-            this.indexData = response.data
+            console.log(response.data['isLogin'])
+            this.my = response.data
         }, (response) => {
             console.log(response)
         })
     },
     components: {
+        'common-footer': CommonFooter
     },
     methods: {
     }

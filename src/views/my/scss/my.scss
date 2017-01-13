@@ -18,6 +18,10 @@ $color_e1e9f0:#e1e9f0;
         p{
           @include px2px(font-size,24);
           color:$color_9E9E9E;
+          &.noLogin{
+            @include px2px(font-size,34);
+            color:$color_424242;
+          }
         }
       }
     }
@@ -139,6 +143,24 @@ $color_e1e9f0:#e1e9f0;
       h1{
         border-bottom: solid 1px $color_e1e9f0;
         padding: px2rem(32) 0;
+        .tb_icon{
+          @extend .relative;
+          &[data-count]:after{
+            content: '';
+            position: absolute;
+            right:px2rem(-30);
+            top:50%;
+            width:px2rem(14);
+            height: px2rem(14);
+            margin-top:px2rem(-7);
+            border-radius:50%;
+            color: #ffffff;
+            background:$color_FC5D7B;
+          }
+          &[data-count='0']:after{
+            display:none;
+          }
+        }
       }
       &:last-child{
         h1{

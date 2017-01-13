@@ -1,11 +1,5 @@
 <template>
   <div class="container padding_b_120">
-    <!--<swipe class="swipe" :auto="50000">
-      <swipe-item class="slide cover" v-for="banner in indexData.banner_list"
-                  v-bind:style="{ 'background-image': 'url(' + banner.image + ')' }">
-        <a href=""></a>
-      </swipe-item>
-    </swipe>-->
     <swiper :options="swiperOption" id="carrousel" ref="mySwiperA">
       <swiper-slide class="slide bg_lazyload" lazy="loading" v-for="banner in indexData.banner_list"
                     v-bind:data-image="banner.image"><a href=""></a></swiper-slide>
@@ -52,12 +46,14 @@
         </ul>
       </div>
     </div>
+    <common-footer footerIndex="0"></common-footer>
+    </div>
 </template>
 <script>
+import CommonFooter from '../../components/common/footer.vue'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default{
     data () {
-        const self = this
         return {
             swiperOption: {
                 swiperSlides: 0,
@@ -69,8 +65,7 @@ export default{
                     this.swiperSlideEnd()
                 }
             },
-            indexData: [],
-            swiperSlides: 0
+            indexData: []
         }
     },
     computed: {
@@ -93,7 +88,8 @@ export default{
     },
     components: {
         swiper,
-        swiperSlide
+        swiperSlide,
+        'common-footer': CommonFooter
     },
     methods: {
         swiperSlideEnd: function () {

@@ -1,5 +1,10 @@
 const Common = {
-    isLogin: true,
+    isLogin: () => {
+        if (window.localStorage.getItem('userInfo') == null) {
+            return false
+        }
+        return true
+    },
     hasDeviceId: false
 }
 // 使用：Common.isLogin

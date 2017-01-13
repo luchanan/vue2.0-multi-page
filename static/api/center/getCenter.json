@@ -1,9 +1,9 @@
 {
-    "coupon_amount": "2",
+    "coupon_amount": "21",
     "point": "0",
     "comment_amount": "2",
     "need_comment_amount": "1",
-    "need_pay_amount": "0",
+    "need_pay_amount": "10",
     "notification_amount": "0",
     "taobao_order_amount": "2",
     "tb_need_pay_amount": "0",

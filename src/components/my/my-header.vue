@@ -2,7 +2,7 @@
   <header>
     <a href="" class="header_left my_setting"></a>
     <h1>{{title}}</h1>
-    <a href="" class="header_right my_message" data-count="1"></a>
+    <a href="" class="header_right my_message" :data-count="isLogin?my.notification_amount:0"></a>
   </header>
 </template>
 

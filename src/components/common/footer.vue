@@ -9,12 +9,11 @@
   </footer>
 </template>
 <script>
-import { Vue, $ } from 'js/base'
 export default {
-    props: ['say'],
+    props: ['footerIndex'],
     mounted: function () {
-        /* const footerIcon = document.getElementById('footerIcon').value
-        $('.footer ul li').eq(footerIcon).children('a').addClass('on') */
+        let self = this
+        document.querySelector('footer').children[0].children[self.footerIndex].children[0].classList.add('on')
     }
 }
 </script>
