@@ -67,6 +67,7 @@ import CommonFooter from '../../components/common/footer.vue'
 export default{
     data () {
         return {
+            counter: 0,
             isLogin: Common.isLogin(),
             loginImgSrc: [require('./images/logined.jpg'), require('./images/nologin.jpg')],
             my: []

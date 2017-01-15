@@ -2,7 +2,7 @@
   <header>
     <a href="" class="header_left my_setting"></a>
     <h1>{{title}}</h1>
-    <a href="" class="header_right my_message" data-count="0"></a>
+    <a href="messageList.html" class="header_right my_message" data-count="0"></a>
   </header>
 </template>
 
@@ -40,6 +40,15 @@
       line-height:px2rem(54);
     }
     a{
+      &.font{
+         @include px2px(font-size,30);
+         line-height:px2rem(102);
+         color:$color_55C1DD;
+         width:auto;
+         &:before{
+            @extend .none;
+         }
+      }
       position:absolute;
       padding:0 px2rem(24);
       width:px2rem(102);
@@ -62,6 +71,12 @@
         content: '';
         background:url(images/setting.png) scroll no-repeat center center;
         @extend .contain;
+      }
+      &.back{
+         &:before{
+            background:url(images/back.png) scroll no-repeat center center;
+            @extend .contain;
+         }
       }
     }
     .header_right{

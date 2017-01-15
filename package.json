@@ -82,6 +82,7 @@
     "url-loader": "^0.5.7",
     "vue-awesome-swiper": "^2.2.9",
     "vue-bus": "^0.3.0",
+    "vue-infinite-scroll": "^2.0.0",
     "vue-lazyload": "^0.9.3",
     "vue-loader": "^9.7.0",
     "vue-resource": "^1.0.3",
