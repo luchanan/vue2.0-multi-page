@@ -8,7 +8,7 @@
     width: 25%;
     padding: px2rem(17) 0;
     a{
-      &:after{
+      &:before{
         content: attr(data-font);
         padding-top:px2rem(46);
         display: block;
@@ -20,34 +20,54 @@
         line-height: 1;
       }
       &.on{
-        &:after{
+        &:before{
           background: url(../images/icon/home_on.png) no-repeat top center;
           @include bg_size_px(36);
           color: $color_55C1DD;
         }
         &.destination{
-          &:after{
+          &:before{
             background-image: url(../images/icon/destination_on.png);
           }
         }
         &.my{
-          &:after{
+          &:before{
             background-image: url(../images/icon/my_on.png);
           }
         }
       }
       &.destination{
-        &:after{
+        &:before{
           background-image: url(../images/icon/destination.png);
         }
       }
       &.cart{
-        &:after{
+        @extend .relative;
+        &:before{
           background-image: url(../images/icon/cart.png);
+        }
+        &[data-count]:after{
+          content: attr(data-count);
+          position: absolute;
+          right:50%;
+          margin-right: px2rem(-48);
+          top:px2rem(-10);
+          font-size:px2rem(18);
+          width: px2rem(36);
+          height: px2rem(24);
+          line-height:px2rem(24);
+          text-align: center;
+          border-radius:px2rem(20);
+          color: #fff;
+          background:$color_FC5D7B;
+          @extend .inline_block;
+        }
+        &[data-count='0']:after{
+          display:none;
         }
       }
       &.my{
-        &:after{
+        &:before{
           background-image: url(../images/icon/my.png);
         }
       }

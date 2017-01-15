@@ -14,10 +14,12 @@ $color_e1e9f0:#e1e9f0;
           @include px2px(font-size,34);
           color:$color_424242;
           max-width:px2rem(480);
+          @include clamp(1);
         }
         p{
           @include px2px(font-size,24);
           color:$color_9E9E9E;
+          @include clamp(1);
           &.noLogin{
             @include px2px(font-size,34);
             color:$color_424242;
@@ -100,12 +102,12 @@ $color_e1e9f0:#e1e9f0;
         &[data-count]:after{
             content: attr(data-count);
             position: absolute;
-            right:px2rem(-26);
+            right:px2rem(-32);
             top:px2rem(-10);
-            @include px2px(font-size,18);
-            @include px2px(width,36);
-            @include px2px(height,24);
-            @include px2px(line-height,24);
+            font-size:px2rem(18);
+            width: px2rem(36);
+            height: px2rem(24);
+            line-height:px2rem(24);
             text-align: center;
             border-radius:px2rem(20);
             color: #fff;

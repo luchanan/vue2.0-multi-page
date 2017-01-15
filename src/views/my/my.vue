@@ -2,7 +2,7 @@
   <div class="container padding_tb_120 my">
     <div class="summary margin_b_20 bg_white">
       <a class="flex flex_v_center info" href="#">
-        <div class="photo"><img :src="isLogin?'./images/logined.jpg':'./images/nologin.png'"></div>
+        <div class="photo"><img v-bind:src="isLogin?loginImgSrc[0]:loginImgSrc[1]"></div>
         <div class="flex_item arrow_right">
           <h1 v-if="isLogin">{{my.nickname}}</h1>
           <p v-if="isLogin">查看个人资料</p>
@@ -68,19 +68,23 @@ export default{
     data () {
         return {
             isLogin: Common.isLogin(),
+            loginImgSrc: [require('./images/logined.jpg'), require('./images/nologin.jpg')],
             my: []
         }
     },
     mounted: function () {
-        this.$http.get('../../../static/api/center/getCenter.json').then((response) => {
-            // indexData，然后html就可以遍历
-            response.data['isLogin'] = Common.isLogin()
-            console.log(response.data)
-            console.log(response.data['isLogin'])
-            this.my = response.data
-        }, (response) => {
-            console.log(response)
-        })
+        if (this.isLogin) {
+            this.$http.get('../../../static/api/center/getCenter.json').then((response) => {
+                // indexData，然后html就可以遍历
+                response.data['isLogin'] = Common.isLogin()
+                console.log(response.data)
+                this.my = response.data
+                // 触发getMessageCount事件，并且传递参数
+                this.$bus.emit('getMessageCount', { num: response.data.notification_amount });
+            }, (response) => {
+                console.log(response)
+            })
+        }
     },
     components: {
         'common-footer': CommonFooter

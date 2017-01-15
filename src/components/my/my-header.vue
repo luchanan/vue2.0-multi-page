@@ -2,7 +2,7 @@
   <header>
     <a href="" class="header_left my_setting"></a>
     <h1>{{title}}</h1>
-    <a href="" class="header_right my_message" :data-count="isLogin?my.notification_amount:0"></a>
+    <a href="" class="header_right my_message" data-count="0"></a>
   </header>
 </template>
 
@@ -11,6 +11,14 @@
       data () {
           return {
               title: '我的'
+          }
+      },
+      mounted: function () {
+          this.$bus.on('getMessageCount', this.setMessageCount);
+      },
+      methods: {
+          setMessageCount: function (params) {
+              document.querySelector('.my_message').setAttribute('data-count', params.num)
           }
       }
   }
