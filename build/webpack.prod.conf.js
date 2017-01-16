@@ -46,11 +46,12 @@ var webpackConfig = merge(baseWebpackConfig, {
 
 
         // split vendor js and UI framework into its own file
+        // 提取公共模块
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
+            name: 'vendor',// 为公共模块起一个名称
             minChunks: function (module, count) {
                 // any required modules inside node_modules are extracted to vendor
-                // 提取全局依赖的库（vue, jquery）
+                // 提取全局依赖的库（主要是base.js中引入的vue, jquery等插件生成放到vuedor.js那里）
                 var jsReg = /\.js$/.test(module.resource) &&
                     module.resource.indexOf(
                         path.join(__dirname, '../node_modules')
@@ -59,11 +60,13 @@ var webpackConfig = merge(baseWebpackConfig, {
 
                 // 公共UI库提提取
                 // todo 这边可进行更精确的匹配
-                var bootstrapUIReg = /bootstrap\.scss$/.test(module.resource);
+                // 提取的样式文件 vendor.[contenthash].css
+                // var bootstrapUIReg = /bootstrap\.scss$/.test(module.resource);
 
 
                 return (
-                    module.resource && (jsReg || bootstrapUIReg)
+                    // module.resource && (jsReg || bootstrapUIReg)
+                    module.resource && jsReg
                 )
             }
         }),
