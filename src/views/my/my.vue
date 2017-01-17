@@ -67,7 +67,6 @@ import CommonFooter from '../../components/common/footer.vue'
 export default{
     data () {
         return {
-            counter: 0,
             isLogin: Common.isLogin(),
             loginImgSrc: [require('./images/logined.jpg'), require('./images/nologin.jpg')],
             my: []
@@ -76,7 +75,6 @@ export default{
     mounted: function () {
         if (this.isLogin) {
             this.$http.get('../../../static/api/center/getCenter.json').then((response) => {
-                // indexData，然后html就可以遍历
                 response.data['isLogin'] = Common.isLogin()
                 console.log(response.data)
                 this.my = response.data

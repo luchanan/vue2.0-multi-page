@@ -30,6 +30,9 @@ export default{
             pageCount: 0
         }
     },
+    mounted: function () {
+        this.$bus.emit('setCenterHeader', {title: '消息中心', left: {className: 'back', href: ''}, 'right': {hide: true}})
+    },
     components: {
         MugenScroll,
         listBottom
@@ -42,13 +45,15 @@ export default{
             if (!this.loading) {
                 this.loading = true;
                 if (this.currentPageCount > this.pageCount && this.pageCount !== 0) {
-                    this.loading = true
-                    console.log(this.$refs.listBottom.$el.children)
-                    this.$refs.listBottom.$el.children.textContent = '没有更多数据了'
+                    this.finishAction()
                     return false
                 }
                 this.$http.get('../../../static/api/center/getNotification.json').then((response) => {
-                    console.log(response.data)
+                    console.log(response.body)
+                    if (response.body.notification_list.length === 0 || response.body.total_index === 0) {
+                        this.finishAction()
+                        return false
+                    }
                     setTimeout(() => {
                         for (let i = 0; i < response.data.notification_list.length; i++) {
                             this.listData.push(response.data.notification_list[i])
@@ -61,6 +66,11 @@ export default{
                     console.log(response)
                 })
             }
+        },
+        finishAction () {
+            this.loading = true
+            this.$refs.listBottom.$el.children[0].classList.add('finished')
+            this.$refs.listBottom.$el.children[0].textContent = this.$refs.listBottom.$data.finishText
         }
     }
 }

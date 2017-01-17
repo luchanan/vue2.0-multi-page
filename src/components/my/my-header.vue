@@ -1,8 +1,12 @@
 <template>
-  <header>
-    <a href="" class="header_left my_setting"></a>
+  <header class="center_header">
+    <a href="" :class="{'header_left my_setting':headerInfo.length==0,
+                        'header_left back':headerInfo.length!=0,
+                       }"></a>
     <h1>{{title}}</h1>
-    <a href="messageList.html" class="header_right my_message" data-count="0"></a>
+    <a href="messageList.html" :class="{'header_right my_message':headerInfo.length==0,
+                                        'header_right':headerInfo.length!=0&&headerInfo.right.hide==true,
+                                       }" data-count="0"></a>
   </header>
 </template>
 
@@ -10,15 +14,22 @@
   export default {
       data () {
           return {
-              title: '我的'
+              title: '我的',
+              headerInfo: []
           }
       },
       mounted: function () {
           this.$bus.on('getMessageCount', this.setMessageCount);
+          this.$bus.on('setCenterHeader', this.setCenterHeader);
       },
       methods: {
           setMessageCount: function (params) {
               document.querySelector('.my_message').setAttribute('data-count', params.num)
+          },
+          setCenterHeader: function (params) {
+              this.$set(this.$data, 'title', params.title)// 改变数据并且更新视图
+              this.$set(this.$data, 'headerInfo', params)
+              // document.querySelector('.header_left')
           }
       }
   }
