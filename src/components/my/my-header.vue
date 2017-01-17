@@ -1,12 +1,8 @@
 <template>
   <header class="center_header">
-    <a href="" :class="{'header_left my_setting':headerInfo.length==0,
-                        'header_left back':headerInfo.length!=0,
-                       }"></a>
+    <a href="javascript:void(0)" :class="setLeftHeader" @click="leftHeader"></a>
     <h1>{{title}}</h1>
-    <a href="messageList.html" :class="{'header_right my_message':headerInfo.length==0,
-                                        'header_right':headerInfo.length!=0&&headerInfo.right.hide==true,
-                                       }" data-count="0"></a>
+    <a href="messageList.html" :class="setRightHeader" data-count="0"></a>
   </header>
 </template>
 
@@ -22,14 +18,32 @@
           this.$bus.on('getMessageCount', this.setMessageCount);
           this.$bus.on('setCenterHeader', this.setCenterHeader);
       },
+      computed: {
+          setLeftHeader: function () {
+              return {
+                  'header_left my_setting': this.headerInfo.length === 0,
+                  'header_left back': this.headerInfo.length !== 0
+              }
+          },
+          setRightHeader: function () {
+              return {
+                  'header_right my_message': this.headerInfo.length === 0,
+                  'header_right hide': this.headerInfo.length !== 0 && this.headerInfo.right.hide === true
+              }
+          }
+      },
       methods: {
+          leftHeader: function (e) {
+              if (e.target.getAttribute('href') === 'javascript:void(0)') {
+                  window.history.go(-1)
+              }
+          },
           setMessageCount: function (params) {
               document.querySelector('.my_message').setAttribute('data-count', params.num)
           },
           setCenterHeader: function (params) {
               this.$set(this.$data, 'title', params.title)// 改变数据并且更新视图
               this.$set(this.$data, 'headerInfo', params)
-              // document.querySelector('.header_left')
           }
       }
   }
@@ -93,6 +107,9 @@
     .header_right{
       left:auto;
       right:0;
+      &.hide{
+        @extend .none;
+      }
       &:before{
         content: '';
         background:url(images/message.png) scroll no-repeat center center;
