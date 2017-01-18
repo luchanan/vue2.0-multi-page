@@ -40,9 +40,17 @@
 更多查看：[http://eslint.org/docs/user-guide/configuring](http://eslint.org/docs/user-guide/configuring)
 
 2.  eslint会对assets下面的第三方插件（自己下载引入的）也进行语法检测，有三种方法解决
-	1.  放到static(不想这样做)
-	2.  .eslintignore追加
-	3.  webpack.base.conf.js中preLoaders使用exclude排除
+
+	-  注释掉webpack.base.conf.js中的preLoaders（极端，排除）
+	-  放到static(不想这样做)
+	-  .eslintignore追加
+	
+		```
+		build/*.js
+		config/*.js
+		src/assets/js/lib/**/*.js
+		```
+	-  webpack.base.conf.js中preLoaders使用exclude排除
 		
 		```
 		...省略
@@ -50,16 +58,83 @@
 		...省略
 		preLoaders: [
 		  {
-		    test: /\.vue$/,
-		    loader: 'eslint',
-		    include: projectRoot,
-		    exclude: [/node_modules/,libs]//多个的话
-		  },
-		  {
 		    test: /\.js$/,
 		    loader: 'eslint',
 		    include: projectRoot,
 		    exclude: [/node_modules/,libs]//多个的话
 		  }
 		]
+		```
+
+3.	.vue如何使用组件
+	- 定义组件，格式包括<template>,<script>,<style>
+	- 引入组件 import
+	- 注册组件 components
+	- 使用组件 <firstcomponent></firstcomponent>
+	
+	```
+	<template>
+	  <div id="app">
+	    <home-header></home-header>
+	  </div>
+	</template>
+	<script>
+	import homeHeader from './components/FirstComponent'
+	export default {
+	  name: 'app',
+	  components: {
+	    'home-header': homeHeader // 或者简写homeHeader
+	  }
+	}
+	```
+
+4. .vue使用sass,注意是lang='scss'不是lang='sass'
+
+	```
+	<style lang='scss'>
+	</style>
+
+	```
+5. 如何npm一个带版本号的插件
+
+	```
+	npm install jquery@2.2.4 –save-dev
+
+	```
+
+6. 如何请求后台数据，并且渲染到html上
+
+   	- 使用vue-resource
+
+	```
+	var vueResource = require('vue-resource')
+	Vue.use(vueResource)
+	
+	```
+
+	- 请求.json文件作为模拟数据，注意只能是get，不能post
+	
+		```
+		export default{
+		  data () {
+		    return {
+		      bannerList: []
+		    }
+		  },
+		  mounted: function () {
+		    this.$http.post('static/api/Home/homepageV3.json
+		').then((response) => {
+		      // 为bannerList赋值数据，然后html就可以遍历
+		      this.bannerList = response.data.banner_list
+		    }, (response) => {
+		      console.log(response)
+		    })
+		  }
+		}
+		
+		```
+	- 当前.vue文件写上
+	
+		```
+		<swipe-item class="slide" v-for="banner in bannerList"><img v-bind:src=banner.image /></swipe-item>
 		```
