@@ -4,9 +4,8 @@
 
 ## 现在的开发环境  ##
 
-1. nodejs v5.1.1 
-2. npm 3.3.1.12
-3. 使用vue-cli（包含vue2.0，webpack，sass，es6等环境）
+1. nodejs v5.1.1 ，npm 3.3.1.12
+2. 使用vue-cli（包含vue2.0，webpack，sass，es6等环境）
 
 ## 前期准备 ##
 
@@ -22,119 +21,34 @@
 
 ## 遇到的问题 ##
 
-1. 刚开始装上vue-cli，发现eslint语法太过严格（定义未使用，要多少个空格，结尾要空行等），所以进行适当调整，在.eslintrc.js添加
-	```
-	rules: {
-	    'indent': ['warn', 4],
-	    'semi': 0,  // off semi
-	    'eol-last': 0,
-	    'no-unused-vars': 0,
-	    // allow paren-less arrow functions
-	    'arrow-parens': 0,
-	    // allow async-await
-	    'generator-star-spacing': 0,
-	    // allow debugger during development
-	    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
-	}
-	```
-更多查看：[http://eslint.org/docs/user-guide/configuring](http://eslint.org/docs/user-guide/configuring)
+1. 刚开始装上vue-cli，发现eslint语法太过严格（定义未使用，要多少个空格，结尾要空行等），所以进行适当调整
 
 2.  eslint会对assets下面的第三方插件（自己下载引入的）也进行语法检测，有三种方法解决
 
-	-  注释掉webpack.base.conf.js中的preLoaders（极端，排除）
-	-  放到static(不想这样做)
-	-  .eslintignore追加
-	
-		```
-		build/*.js
-		config/*.js
-		src/assets/js/lib/**/*.js
-		```
-	-  webpack.base.conf.js中preLoaders使用exclude排除
-		
-		```
-		...省略
-		var libs=path.resolve(__dirname, '../src/assets/js/lib/')
-		...省略
-		preLoaders: [
-		  {
-		    test: /\.js$/,
-		    loader: 'eslint',
-		    include: projectRoot,
-		    exclude: [/node_modules/,libs]//多个的话
-		  }
-		]
-		```
-
 3.	.vue如何使用组件
-	- 定义组件，格式包括<template>,<script>,<style>
-	- 引入组件 import
-	- 注册组件 components
-	- 使用组件 <firstcomponent></firstcomponent>
-	
-	```
-	<template>
-	  <div id="app">
-	    <home-header></home-header>
-	  </div>
-	</template>
-	<script>
-	import homeHeader from './components/FirstComponent'
-	export default {
-	  name: 'app',
-	  components: {
-	    'home-header': homeHeader // 或者简写homeHeader
-	  }
-	}
-	```
 
 4. .vue使用sass,注意是lang='scss'不是lang='sass'
 
-	```
-	<style lang='scss'>
-	</style>
-
-	```
 5. 如何npm一个带版本号的插件
-
-	```
-	npm install jquery@2.2.4 –save-dev
-
-	```
 
 6. 如何请求后台数据，并且渲染到html上
 
-   	- 使用vue-resource
+7. 微信jssdk如何设置全局，并且使用
 
-	```
-	var vueResource = require('vue-resource')
-	Vue.use(vueResource)
-	
-	```
+8. 使用v:bind:style设置background
 
-	- 请求.json文件作为模拟数据，注意只能是get，不能post
-	
-		```
-		export default{
-		  data () {
-		    return {
-		      bannerList: []
-		    }
-		  },
-		  mounted: function () {
-		    this.$http.post('static/api/Home/homepageV3.json
-		').then((response) => {
-		      // 为bannerList赋值数据，然后html就可以遍历
-		      this.bannerList = response.data.banner_list
-		    }, (response) => {
-		      console.log(response)
-		    })
-		  }
-		}
-		
-		```
-	- 当前.vue文件写上
-	
-		```
-		<swipe-item class="slide" v-for="banner in bannerList"><img v-bind:src=banner.image /></swipe-item>
-		```
+9. class使用多条件进行判断
+
+10. 如何生成一个tree目录
+
+11. html-loader代替服务器SSI
+
+12. 子传父，父传子，非父子组件之间传值问题
+
+13. set使用导致html{{}}无法输出三层 以上的object
+
+14. img:src绑定assets下图片404问题
+
+15. 使用filters
+
+> 更多详情看note文件下
