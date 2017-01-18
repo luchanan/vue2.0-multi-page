@@ -15,7 +15,7 @@ var projectRoot = path.resolve(__dirname, '../')
 var srcDir = path.resolve(__dirname, '../src')
 var entries = utils.getEntries(srcDir + '/views/**/*.js')
 
-var autoprefixerConf = autoprefixer({ browsers: ['last 2 versions'] });
+var autoprefixerConf = autoprefixer({ browsers: ['last 2 versions','Android >= 4.0','iOS >= 6'] });
 
 module.exports = {
     entry: entries,
@@ -80,6 +80,10 @@ module.exports = {
                 test: /\.json$/,
                 loader: 'json'
             },
+            /*{
+                test: /\.(css|scss)$/,
+                loader: "style!css!postcss!sass"
+            },*/
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url',
