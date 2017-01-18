@@ -62,7 +62,7 @@
   </div>
 </template>
 <script>
-import { Vue, $, Common } from 'js/base'
+import { Vue, $, Common, wx } from 'js/base'
 import CommonFooter from '../../components/common/footer.vue'
 export default{
     data () {

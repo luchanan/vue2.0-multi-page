@@ -1,6 +1,6 @@
 <template>
   <header class="center_header">
-    <a href="javascript:void(0)" :class="setLeftHeader" @click="leftHeader"></a>
+    <a :href="setLeftHeaderUrl" :class="setLeftHeader" @click="leftHeader"></a>
     <h1>{{title}}</h1>
     <a href="messageList.html" :class="setRightHeader" data-count="0"></a>
   </header>
@@ -29,6 +29,13 @@
               return {
                   'header_right my_message': this.headerInfo.length === 0,
                   'header_right hide': this.headerInfo.length !== 0 && this.headerInfo.right.hide === true
+              }
+          },
+          setLeftHeaderUrl: function () {
+              if (this.headerInfo.length === 0) {
+                  return 'setting.html'
+              } else if (this.headerInfo.length !== 0 && this.headerInfo.left.href === undefined) {
+                  return 'javascript:void(0)'
               }
           }
       },

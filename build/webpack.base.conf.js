@@ -31,7 +31,7 @@ module.exports = {
         fallback: [path.join(__dirname, '../node_modules')],
         alias: {
             'vue$': 'vue/dist/vue',
-            'jquery$': 'jquery/dist/jquery',
+            // 'jquery$': 'jquery/dist/jquery',// 注销，使用CDN
             'src': path.resolve(__dirname, '../src'),
             'assets': path.resolve(__dirname, '../src/assets'),
             'images': path.resolve(__dirname, '../src/assets/images'),
@@ -44,7 +44,10 @@ module.exports = {
     resolveLoader: {
         fallback: [path.join(__dirname, '../node_modules')]
     },
-
+    externals: {
+        'wx': 'jWeixin', // 使用cdn资源，暴露wx
+        'jquery': 'jQuery'  // 使用cdn资源，暴露jquery
+    },
     module: {
         preLoaders: [
             {

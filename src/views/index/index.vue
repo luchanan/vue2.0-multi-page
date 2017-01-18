@@ -96,7 +96,7 @@ export default{
             // 这个this.swiper为computed的swiper
             const ele = this.swiper.slides[this.swiper.activeIndex];
             const imgSrc = ele.getAttribute('data-image')
-            console.log(imgSrc)// ../static/api/Home/images/banner1.jpg
+            // console.log(imgSrc)// ../static/api/Home/images/banner1.jpg
             if (imgSrc !== null) {
                 // 直接使用new Image()eslint会报错
                 const img = new window.Image()

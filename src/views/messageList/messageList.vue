@@ -2,7 +2,7 @@
   <div class="container padding_t_122 messageList">
     <ul class="bg_white">
       <li v-for="list in listData">
-        <a href="">
+        <a href="javascript:void(0)">
           <h1 class="top flex flex_v_center">
             <div class="title flex_item"><span data-count="1">{{list.title}}</span></div>
             <div class="time"><time>{{list.create_time | toFriendlyTime}}</time></div>
@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import { Vue, $, Common } from 'js/base'
+import { Vue, $, Common, wx } from 'js/base'
 import MugenScroll from 'vue-mugen-scroll'
 import listBottom from '../../components/common/list-bottom.vue'
 import filters from '../../assets/js/filters'
@@ -31,7 +31,7 @@ export default{
         }
     },
     mounted: function () {
-        this.$bus.emit('setCenterHeader', {title: '消息中心', left: {className: 'back', href: ''}, 'right': {hide: true}})
+        this.$bus.emit('setCenterHeader', {title: '消息中心', left: {className: 'back'}, 'right': {hide: true}})
     },
     components: {
         MugenScroll,
