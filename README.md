@@ -43,6 +43,7 @@
 	1.  放到static(不想这样做)
 	2.  .eslintignore追加
 	3.  webpack.base.conf.js中preLoaders使用exclude排除
+		
 		```
 		...省略
 		var libs=path.resolve(__dirname, '../src/assets/js/lib/')
