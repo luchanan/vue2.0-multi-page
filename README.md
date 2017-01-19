@@ -1,11 +1,25 @@
 # Vue-cli(2.0) 多页面开发实战
 
-> 由于是从jquery操作dom时代转过来mvc的，所以在开发中会遇到很多问题，借此来记录一下
+> 由于是从jquery操作dom时代转过来mvc的，所以在开发中会遇到很多问题，借此来记录一下；或者有很多不足，又或者里面可能存在些错误，anyway,请多多指教，共勉。
 
 ## 现在的开发环境  ##
 
 1. nodejs v5.1.1 ，npm 3.3.1.12
 2. 使用vue-cli（包含vue2.0，webpack，sass，es6等环境）
+
+## 如何运行项目 ##
+
+``` bash
+# 下载项目后，首先安装需要的包
+npm install
+
+# 开发运行环境;运行命令后，浏览器自动打开http://localhost:8080/views/index.html
+npm run dev
+
+# 开发完成后，打包项目命令
+npm run build
+
+```
 
 ## 前期准备 ##
 
@@ -45,7 +59,7 @@
 
 12. 子传父，父传子，非父子组件之间传值问题
 
-13. set使用导致html{{}}无法输出三层 以上的object
+13. set使用导致html{{}}无法输出2层 以上的object
 
 14. img:src绑定assets下图片404问题
 
