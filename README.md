@@ -51,4 +51,6 @@
 
 15. 使用filters
 
+16.	.js或.vue中<script>使用import（或require）文件引入.scss文件没有自动添加浏览器前缀问题，npm run dev 和npm run build 编译后浏览器前缀解析（丢失部分）不一样问题
+
 > 更多详情看note文件下
