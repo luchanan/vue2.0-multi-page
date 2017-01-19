@@ -28,6 +28,10 @@ exports.cssLoaders = function (options) {
             } else {
                 loader = loader + '-loader'
                 extraParamChar = '?'
+                // 解决npm run dev 和 npm run build 编译后前缀不一样的问题
+                if (loader === 'css-loader') {
+                    extraParamChar = '?-autoprefixer&'
+                }
             }
             return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
 
@@ -60,10 +64,22 @@ exports.styleLoaders = function (options) {
     var loaders = exports.cssLoaders(options);
 
     for (var extension in loaders) {
-        var loader = loaders[extension];
+        // var loader = loaders[extension];
+        // 解决.js文件引入scss无法添加前缀问题
+        var loader = loaders[extension].split('!');
+        // 解决.js文件引入scss无法添加前缀问题
+        var isPreProcesser = ['less', 'sass', 'scss' ,'stylus', 'styl'].some(function (v) {
+            return v === extension
+        })
+        // 解决.js文件引入scss无法添加前缀问题
+        if (isPreProcesser) {
+            loader.splice(-1, 0, 'postcss-loader')
+        }
         output.push({
             test: new RegExp('\\.' + extension + '$'),
-            loader: loader
+            // loader: loader
+            // 解决.js文件引入scss无法添加前缀问题
+            loader: loader.join('!')
         })
     }
 
