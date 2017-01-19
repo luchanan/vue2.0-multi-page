@@ -53,7 +53,7 @@
     </ul>
     <ul class="item margin_b_20 bg_white">
       <li>
-        <a href="" class="arrow_right flex flex_v_center service">
+        <a href="service.html" class="arrow_right flex flex_v_center service">
           <h1 class="flex_item">客服电话</h1>
         </a>
       </li>
