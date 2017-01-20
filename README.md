@@ -37,7 +37,13 @@ npm run build
 
 - 刚开始装上vue-cli，发现eslint语法太过严格（定义未使用，要多少个空格，结尾要空行等），所以进行适当调整
 
--  eslint会对assets下面的第三方插件（自己下载引入的）也进行语法检测，有三种方法解决
+- eslint会对assets下面的第三方插件（自己下载引入的）也进行语法检测，有三种方法解决
+
+- .vue如何使用组件
+
+- .vue使用sass,注意是lang='scss'不是lang='sass'
+
+- 如何npm一个带版本号的插件
 
 - 如何请求后台数据，并且渲染到html上
 
@@ -59,6 +65,6 @@ npm run build
 
 - 使用filters
 
--	.js或.vue中<script>使用import（或require）文件引入.scss文件没有自动添加浏览器前缀问题，npm run dev 和npm run build 编译后浏览器前缀解析（丢失部分）不一样问题
+- .js或.vue中script使用import（或require）文件引入.scss文件没有自动添加浏览器前缀问题，npm run dev 和npm run build 编译后浏览器前缀解析（丢失部分）不一样问题
 
 > 更多详情看note文件下
