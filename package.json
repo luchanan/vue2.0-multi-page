@@ -88,6 +88,7 @@
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.1",
     "vue-style-loader": "^1.0.0",
+    "vuex": "^2.1.1",
     "webpack": "^1.13.3",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-dev-server": "^1.16.2",

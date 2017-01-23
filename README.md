@@ -1,6 +1,6 @@
 # Vue-cli(2.0) 多页面开发实战
 
-> 由于之前主要使用jquery方式开发，现在想换一种方式，使用mvc开发(感觉vue跟我之前用的angular1.X差不多类似)，所以在开发中会遇到很多问题，借此来记录一下；或者有很多不足，又或者里面可能存在些错误，anyway,请多多指教，共勉。
+> 由于之前主要使用jquery方式开发，现在想换一种方式，使用MVVM开发(感觉vue跟我之前用的angular1.X差不多类似)，所以在开发中会遇到很多问题，借此来记录一下；或者有很多不足，又或者里面可能存在些错误，anyway，请多多指教，共勉。
 
 ## 现在的开发环境  ##
 
@@ -16,7 +16,7 @@ npm install
 # 开发运行环境;运行命令后，浏览器自动打开http://localhost:8080/views/index.html
 npm run dev
 
-# 开发完成后打包命令，会生成dist文件夹，不要在本地打开，请安装http-server来运行
+# 开发完成后打包命令，会生成dist文件夹，不要在本地打开，请安装类似http-server来运行
 npm run build
 
 ```
@@ -26,7 +26,7 @@ npm run build
 1. 选择一个多页面开发案例参考，结合自己的实际情况修改一下，这里主要参考了以下一些案例
 	- [https://github.com/bluefox1688/vue-cli-multi-page](https://github.com/bluefox1688/vue-cli-multi-page)（参考多页面配置整体思想）
 	- [https://github.com/jiananle/vue-multi-page](https://github.com/jiananle/vue-multi-page)（参考整个文件命名架构，比较适合我这种情况）
-	- [https://github.com/jarvan4dev/vue-multi-page](https://github.com/jarvan4dev/vue-multi-page)（参考以文件作为模块名输出，这样就不会造成覆盖）
+	- [https://github.com/jarvan4dev/vue-multi-page](https://github.com/jarvan4dev/vue-multi-page)（参考以模块名作为名字输出，避免以模块名里面的文件名作为名字输出导致覆盖）
 	
 2. 熟悉相关语法（基本了解就好，毕竟做项目的时候才会发现更多的问题）
 	- [es6基本使用方法](http://es6.ruanyifeng.com/)
@@ -55,7 +55,7 @@ npm run build
 
 - 如何生成一个tree目录
 
-- html-loader代替服务器SSI
+- html-loader部分代替服务器SSI（.html文件使用SSI来include类似JS或CSS资源目前没有找到很好的解决方法）
 
 - 子传父，父传子，非父子组件之间传值问题
 
