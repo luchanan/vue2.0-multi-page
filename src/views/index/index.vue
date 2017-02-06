@@ -52,6 +52,7 @@
 <script>
 import CommonFooter from '../../components/common/footer.vue'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import store from '../../vuex/store'
 export default{
     data () {
         return {

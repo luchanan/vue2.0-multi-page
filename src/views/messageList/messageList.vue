@@ -1,5 +1,8 @@
 <template>
   <div class="container padding_t_122 messageList">
+    <ul>
+      <li v-for='item in banner'>{{item}}</li>
+    </ul>
     <ul class="bg_white">
       <li v-for="list in listData">
         <a href="javascript:void(0)">
@@ -21,6 +24,7 @@ import { Vue, $, Common, wx } from 'js/base'
 import MugenScroll from 'vue-mugen-scroll'
 import listBottom from '../../components/common/list-bottom.vue'
 import filters from '../../assets/js/filters'
+import {mapGetters} from 'vuex'
 export default{
     data () {
         return {
@@ -33,6 +37,14 @@ export default{
     mounted: function () {
         this.$bus.emit('setCenterHeader', {title: '消息中心', left: {className: 'back'}, 'right': {hide: true}})
     },
+    created: function () {
+        if (this.banner.length === 0) {
+            this.$store.dispatch('getBannerList')
+        }
+    },
+    computed: mapGetters({
+        banner: 'getBannerList'
+    }),
     components: {
         MugenScroll,
         listBottom
