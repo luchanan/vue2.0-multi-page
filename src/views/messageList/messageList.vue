@@ -39,12 +39,19 @@ export default{
     },
     created: function () {
         if (this.banner.length === 0) {
-            this.$store.dispatch('getBannerList')
+            console.log('a')
+            this.$store.dispatch('getMessageList')
         }
     },
-    computed: mapGetters({
-        banner: 'getBannerList'
-    }),
+    computed: {
+        a () {
+            return 'a'
+        },
+        ...mapGetters({
+            // 在 mapState 里面我们既可以调用 store 的 state ，也可以调用 store 的 getters
+            banner: 'getMessageListGet'
+        })
+    },
     components: {
         MugenScroll,
         listBottom

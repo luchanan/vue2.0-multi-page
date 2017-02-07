@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import home from './modules/home'
+import messageList from './modules/messageList'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     modules: {
-        home
+        messageList
     },
-    strict: process.env.NODE_ENV !== 'production'
+    strict: process.env.NODE_ENV !== 'production'// 线上环境关掉
 })
