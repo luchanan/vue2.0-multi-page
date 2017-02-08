@@ -7,12 +7,12 @@ import axios from 'axios'
 var url = process.env.NODE_ENV !== 'production' ? '/static/api/' : '';
 export default {
     /**
-     * 根据请求的时间戳获取banner列表
+     * 获取消息列表数据
      */
-    getMessageList: function (cb) {
-        axios.get(url + 'center/getNotification.json?t=' + new Date() * 1 + '&callback=?').then(function (res) {
+    getMessageList: function (currentPage, cb) {
+        axios.get(url + 'center/getNotification.json?t=' + new Date() * 1 + '&currentPage=' + currentPage + '&callback=?').then(function (res) {
             if (res.status >= 200 && res.status < 300) {
-                cb(res.data.notification_list)
+                cb(res.data)
             }
         }).catch((error) => {
             return Promise.reject(error)

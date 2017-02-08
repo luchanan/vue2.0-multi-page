@@ -1,16 +1,23 @@
+import {Common} from 'js/base'
 import api from '../api'
 // 主页
 import * as types from '../mutation-types'
 const state = {
-    listData: []
+    listData: [],
+    hasMore: true,
+    currentPage: 0,
+    totalPage: 0
 }
 
 const actions = {
     // 获取banner列表
     getMessageList: function ({commit}) {
-        api.getMessageList(function (res) {
-            commit(types.MESSAGE_GET_LIST, res);
-        })
+        if (state.hasMore) {
+            commit(types.MESSAGE_LIST_CURRENTPAGE);
+            api.getMessageList(state.currentPage, function (res) {
+                commit(types.MESSAGE_GET_LIST, res);
+            })
+        }
     }
 }
 const getters = {
@@ -20,7 +27,11 @@ const getters = {
 const mutations = {
     // es6使用变量作为方法名
     [types.MESSAGE_GET_LIST] (state, res) {
-        state.listData = res
+        state.listData = state.listData.concat(res.notification_list)
+        state.hasMore = state.currentPage < Common.index2PageCount(res.total_index) === true
+    },
+    [types.MESSAGE_LIST_CURRENTPAGE] (state) {
+        state.currentPage += 1
     }
 }
 
