@@ -1,8 +1,5 @@
 <template>
   <div class="container padding_t_122 messageList">
-    <ul>
-      <li v-for='item in banner'>{{item}}</li>
-    </ul>
     <ul class="bg_white">
       <li v-for="list in listData">
         <a href="javascript:void(0)">
@@ -20,7 +17,7 @@
   </div>
 </template>
 <script>
-import { Vue, $, Common, wx } from 'js/base'
+import {Common} from 'js/base'
 import MugenScroll from 'vue-mugen-scroll'
 import listBottom from '../../components/common/list-bottom.vue'
 import filters from '../../assets/js/filters'
@@ -28,7 +25,6 @@ import {mapGetters} from 'vuex'
 export default{
     data () {
         return {
-            listData: [],
             loading: false,
             currentPageCount: 1,
             pageCount: 0
@@ -38,10 +34,7 @@ export default{
         this.$bus.emit('setCenterHeader', {title: '消息中心', left: {className: 'back'}, 'right': {hide: true}})
     },
     created: function () {
-        if (this.banner.length === 0) {
-            console.log('a')
-            this.$store.dispatch('getMessageList')
-        }
+
     },
     computed: {
         a () {
@@ -49,7 +42,7 @@ export default{
         },
         ...mapGetters({
             // 在 mapState 里面我们既可以调用 store 的 state ，也可以调用 store 的 getters
-            banner: 'getMessageListGet'
+            listData: 'getMessageListGet'
         })
     },
     components: {
@@ -67,7 +60,12 @@ export default{
                     this.finishAction()
                     return false
                 }
-                this.$http.get('../../../static/api/center/getNotification.json').then((response) => {
+                this.$store.dispatch('getMessageList')
+                setTimeout(() => {
+                    this.loading = false // 不明白为什么要提到外面,不提到这里会不断请求不止
+                    this.currentPageCount++
+                }, 3000)
+               /* this.$http.get('../../../static/api/center/getNotification.json').then((response) => {
                     console.log(response.body)
                     if (response.body.notification_list.length === 0 || response.body.total_index === 0) {
                         this.finishAction()
@@ -83,7 +81,7 @@ export default{
                     }, 3000)
                 }, (response) => {
                     console.log(response)
-                })
+                }) */
             }
         },
         finishAction () {
