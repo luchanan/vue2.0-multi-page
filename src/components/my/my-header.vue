@@ -17,6 +17,7 @@
       mounted: function () {
           this.$bus.on('getMessageCount', this.setMessageCount);
           this.$bus.on('setCenterHeader', this.setCenterHeader);
+          console.log(this.$store.getters)
       },
       computed: {
           setLeftHeader: function () {

@@ -21,7 +21,8 @@ const actions = {
     }
 }
 const getters = {
-    getMessageListGet: state => state.listData
+    getMessageListGet: state => state.listData,
+    hasMore: state => state.hasMore
 }
 
 const mutations = {
@@ -32,6 +33,7 @@ const mutations = {
     },
     [types.MESSAGE_LIST_CURRENTPAGE] (state) {
         state.currentPage += 1
+        state.hasMore = false
     }
 }
 

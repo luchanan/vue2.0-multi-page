@@ -25,24 +25,22 @@ import {mapGetters} from 'vuex'
 export default{
     data () {
         return {
-            loading: false,
-            currentPageCount: 1,
-            pageCount: 0
+            loading: false
         }
     },
     mounted: function () {
         this.$bus.emit('setCenterHeader', {title: '消息中心', left: {className: 'back'}, 'right': {hide: true}})
-    },
-    created: function () {
-
+        this.$store.dispatch('setPageInfo', {
+            headerTitle: '消息中心',
+            left: {className: 'back'},
+            'right': {hide: true}
+        })
     },
     computed: {
-        a () {
-            return 'a'
-        },
         ...mapGetters({
             // 在 mapState 里面我们既可以调用 store 的 state ，也可以调用 store 的 getters
-            listData: 'getMessageListGet'
+            listData: 'getMessageListGet',
+            hasMore: 'hasMore'
         })
     },
     components: {
@@ -56,32 +54,14 @@ export default{
         fetchData () {
             if (!this.loading) {
                 this.loading = true;
-                if (this.currentPageCount > this.pageCount && this.pageCount !== 0) {
+                if (!this.hasMore) {
                     this.finishAction()
                     return false
                 }
                 this.$store.dispatch('getMessageList')
                 setTimeout(() => {
-                    this.loading = false // 不明白为什么要提到外面,不提到这里会不断请求不止
-                    this.currentPageCount++
-                }, 3000)
-               /* this.$http.get('../../../static/api/center/getNotification.json').then((response) => {
-                    console.log(response.body)
-                    if (response.body.notification_list.length === 0 || response.body.total_index === 0) {
-                        this.finishAction()
-                        return false
-                    }
-                    setTimeout(() => {
-                        for (let i = 0; i < response.data.notification_list.length; i++) {
-                            this.listData.push(response.data.notification_list[i])
-                        }
-                        this.loading = false // 不明白为什么要提到外面,不提到这里会不断请求不止
-                        this.pageCount = Common.index2PageCount(response.data.total_index)
-                        this.currentPageCount++
-                    }, 3000)
-                }, (response) => {
-                    console.log(response)
-                }) */
+                    this.loading = false // 如果设置setTimeout超时时间，那么有可能导致数据更新了，但是视图不更新数据的问题
+                }, 0)
             }
         },
         finishAction () {
