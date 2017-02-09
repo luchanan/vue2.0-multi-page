@@ -29,7 +29,7 @@ export default{
         }
     },
     mounted: function () {
-        this.$bus.emit('setCenterHeader', {title: '消息中心', left: {className: 'back'}, 'right': {hide: true}})
+        // this.$bus.emit('setCenterHeader', {title: '消息中心', left: {className: 'back'}, 'right': {hide: true}})
         this.$store.dispatch('setPageInfo', {
             headerTitle: '消息中心',
             left: {className: 'back'},

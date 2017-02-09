@@ -1,23 +1,22 @@
 <template>
   <header class="center_header">
     <a :href="setLeftHeaderUrl" :class="setLeftHeader" @click="leftHeader"></a>
-    <h1>{{title}}</h1>
+    <h1>{{headerTitle}}</h1>
     <a href="messageList.html" :class="setRightHeader" data-count="0"></a>
   </header>
 </template>
 
 <script>
+  import {mapGetters, mapState} from 'vuex'
   export default {
       data () {
           return {
-              title: '我的',
               headerInfo: []
           }
       },
       mounted: function () {
-          this.$bus.on('getMessageCount', this.setMessageCount);
-          this.$bus.on('setCenterHeader', this.setCenterHeader);
-          console.log(this.$store.getters)
+          this.$bus.on('getMessageCount', this.setMessageCount)
+          this.headerInfo = this.$store.getters.setPageInfo
       },
       computed: {
           setLeftHeader: function () {
@@ -38,7 +37,10 @@
               } else if (this.headerInfo.length !== 0 && this.headerInfo.left.href === undefined) {
                   return 'javascript:void(0)'
               }
-          }
+          },
+          ...mapGetters({
+              headerTitle: 'headerTitle'
+          })
       },
       methods: {
           leftHeader: function (e) {
@@ -48,10 +50,6 @@
           },
           setMessageCount: function (params) {
               document.querySelector('.my_message').setAttribute('data-count', params.num)
-          },
-          setCenterHeader: function (params) {
-              this.$set(this.$data, 'title', params.title)// 改变数据并且更新视图
-              this.$set(this.$data, 'headerInfo', params)
           }
       }
   }
