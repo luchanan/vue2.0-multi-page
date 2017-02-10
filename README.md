@@ -45,7 +45,7 @@ npm run build
 
 - 如何npm一个带版本号的插件
 
-- 如何请求后台数据，并且渲染到html上
+- 如何请求后台数据（vue-resource方式），并且渲染到html上
 
 - 微信jssdk如何设置全局，并且使用
 
@@ -53,11 +53,11 @@ npm run build
 
 - class使用多条件进行判断
 
-- 如何生成一个tree目录
+- 如何生成一个tree目录（额外内容）
 
 - html-loader部分代替服务器SSI（.html文件使用SSI来include类似JS或CSS资源目前没有找到很好的解决方法）
 
-- 子传父，父传子，非父子组件之间传值问题
+- 子传父，父传子，非父子组件（BUS方式）之间传值问题
 
 - set使用导致html{{}}无法输出2层 以上的object
 
@@ -66,5 +66,7 @@ npm run build
 - 使用filters
 
 - .js或.vue中script使用import（或require）文件引入.scss文件没有自动添加浏览器前缀问题，npm run dev 和npm run build 编译后浏览器前缀解析（丢失部分）不一样问题
+
+- 加入vuex逐步取代之前bus组件通讯方式，axios代替之前的vue-resource方案
 
 > 更多详情看note文件下

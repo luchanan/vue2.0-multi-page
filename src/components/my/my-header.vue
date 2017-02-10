@@ -1,45 +1,37 @@
 <template>
   <header class="center_header">
     <a :href="setLeftHeaderUrl" :class="setLeftHeader" @click="leftHeader"></a>
-    <h1>{{headerTitle}}</h1>
-    <a href="messageList.html" :class="setRightHeader" data-count="0"></a>
+    <h1>{{pageInfo.headerTitle}}</h1>
+    <a href="messageList.html" :class="setRightHeader" :data-count="messageCount"></a>
   </header>
 </template>
 
 <script>
   import {mapGetters, mapState} from 'vuex'
   export default {
-      data () {
-          return {
-              headerInfo: []
-          }
-      },
-      mounted: function () {
-          this.$bus.on('getMessageCount', this.setMessageCount)
-          this.headerInfo = this.$store.getters.setPageInfo
-      },
       computed: {
           setLeftHeader: function () {
               return {
-                  'header_left my_setting': this.headerInfo.length === 0,
-                  'header_left back': this.headerInfo.length !== 0
+                  'header_left my_setting': this.$store.getters.getPageInfo.left === '',
+                  'header_left back': this.$store.getters.getPageInfo.left.className === 'back'
               }
           },
           setRightHeader: function () {
               return {
-                  'header_right my_message': this.headerInfo.length === 0,
-                  'header_right hide': this.headerInfo.length !== 0 && this.headerInfo.right.hide === true
+                  'header_right my_message': this.$store.getters.getPageInfo.right === '',
+                  'header_right hide': this.$store.getters.getPageInfo.right.hide === true
               }
           },
           setLeftHeaderUrl: function () {
-              if (this.headerInfo.length === 0) {
+              if (this.$store.getters.getPageInfo.left === '') {
                   return 'setting.html'
-              } else if (this.headerInfo.length !== 0 && this.headerInfo.left.href === undefined) {
+              } else {
                   return 'javascript:void(0)'
               }
           },
           ...mapGetters({
-              headerTitle: 'headerTitle'
+              pageInfo: 'getPageInfo',
+              messageCount: 'getMessageCount'
           })
       },
       methods: {
@@ -47,9 +39,6 @@
               if (e.target.getAttribute('href') === 'javascript:void(0)') {
                   window.history.go(-1)
               }
-          },
-          setMessageCount: function (params) {
-              document.querySelector('.my_message').setAttribute('data-count', params.num)
           }
       }
   }

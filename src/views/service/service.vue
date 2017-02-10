@@ -15,7 +15,12 @@
 </template>
 <script>
 export default{
-    methods: {
+    created: function () {
+        this.$store.dispatch('setPageInfo', {
+            headerTitle: '客服电话',
+            left: {className: 'back'},
+            'right': {hide: true}
+        })
     }
 }
 </script>

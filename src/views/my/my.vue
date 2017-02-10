@@ -1,7 +1,7 @@
 <template>
   <div class="container padding_tb_120 my">
     <div class="summary margin_b_20 bg_white">
-      <a class="flex flex_v_center info" href="#">
+      <a class="flex flex_v_center info" :href="isLogin?'info.html':'login.html'">
         <div class="photo"><img v-bind:src="isLogin?loginImgSrc[0]:loginImgSrc[1]"></div>
         <div class="flex_item arrow_right">
           <h1 v-if="isLogin">{{my.nickname}}</h1>
@@ -79,7 +79,7 @@ export default{
                 console.log(response.data)
                 this.my = response.data
                 // 触发getMessageCount事件，并且传递参数
-                this.$bus.emit('getMessageCount', { num: response.data.notification_amount });
+                this.$store.dispatch('getMessageCount', response.data.notification_amount)
             }, (response) => {
                 console.log(response)
             })
@@ -87,8 +87,6 @@ export default{
     },
     components: {
         'common-footer': CommonFooter
-    },
-    methods: {
     }
 }
 </script>

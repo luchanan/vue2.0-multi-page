@@ -1,0 +1,97 @@
+@charset "utf-8";
+@import "../../../assets/scss/base/necessary.scss";
+$color_02d1b1:#02d1b1;
+.login{
+  li.form{
+      border-bottom:solid 1px $color_9E9E9E;
+      &:last-child{
+          border:none;
+      }
+  }
+  .text{
+      @include px2px(font-size,30);
+      color:$color_424242;
+      width: 100%;
+      padding:px2rem(29) px2rem(24);
+  }
+  .link{
+      a{
+        @include px2px(font-size,26);
+        @extend .block;
+        padding: px2rem(24);
+        color: $color_55C1DD;
+      }
+  }
+  button{
+    @include px2px(font-size,34)
+    width: 100%;
+    @extend .block;
+    color: $white;
+    line-height: px2rem(80);
+    &:disabled{
+      background: $color_E1E9F0;
+    }
+  }
+  .thirdLogin{
+      padding:px2rem(90) px2rem(24) 0;
+      hr{
+        height:px2rem(24);
+        border:none;
+        background: url(../images/hr_login.png) scroll no-repeat center center;
+        background-size:contain;
+      }
+      .line{
+        position:absolute;
+        top:50%;
+        height:px2rem(24);
+        margin-top:px2rem(-12);
+        width:100%;
+        line-height: 1;
+      }
+      h1{
+        color:$color_9E9E9E;
+        @include px2px(font-size,24);
+        position:relative;
+        text-align:center;
+        span{
+          background:$color_F3F5F8;
+          display:inline-block;
+        }
+      }
+  }
+  .loginIcon{
+    text-align: center;
+    margin-top:px2rem(50);
+    li{
+      @extend .inline_block;
+      font-size: 0;
+      margin-right:px2rem(90);
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+    .icon{
+      display:inline-block;
+      width:px2rem(100);
+      height:px2rem(100);
+      border:solid 1px #ccd6e0;
+      border-radius:50%;
+      background: url(../images/sina_login.png) scroll no-repeat center center;
+      background-size:contain;
+      &:active{
+        background-color: #e3eaf1 !important;
+      }
+      &:last-child{
+        margin-right:0;
+      }
+      &.qq{
+        background: url(../images/qq_login.png) scroll no-repeat center center;
+        background-size:contain;
+      }
+      &.wechat{
+        background: url(../images/wechat_login.png) scroll no-repeat center center;
+        background-size:contain;
+      }
+    }
+  }
+}

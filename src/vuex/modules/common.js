@@ -1,6 +1,8 @@
 import * as types from '../mutation-types'
 const state = {
-    headerTitle: '我的'
+    headerTitle: '我的',
+    left: '',
+    right: ''
 }
 
 const actions = {
@@ -9,14 +11,13 @@ const actions = {
     }
 }
 const getters = {
-    setPageInfo: state => state,
-    headerTitle: state => state.headerTitle
+    getPageInfo: state => state
 }
 
 const mutations = {
     [types.PAGE_SET_INFO] (state, settings) {
-        state.headerTitle = settings.headerTitle
         state = Object.assign(state, settings)
+        console.log(state)
     }
 }
 
