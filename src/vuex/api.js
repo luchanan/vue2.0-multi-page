@@ -17,5 +17,17 @@ export default {
         }).catch((error) => {
             return Promise.reject(error)
         })
+    },
+    /**
+     * 登录
+     */
+    getLogin: function (params, cb) {
+        axios.get(url + 'user/login.json?t=' + new Date() * 1 + '&callback=?').then(function (res) {
+            if (res.status >= 200 && res.status < 300) {
+                cb(res.data)
+            }
+        }).catch((error) => {
+            return Promise.reject(error)
+        })
     }
 }

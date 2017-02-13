@@ -2,11 +2,18 @@
 @import "../../../assets/scss/base/necessary.scss";
 $color_02d1b1:#02d1b1;
 .login{
-  li.form{
-      border-bottom:solid 1px $color_9E9E9E;
+  .tips{
+    @include px2px(font-size,30);
+    color: $color_55C1DD;
+    padding: 0 px2rem(24) px2rem(20) px2rem(24);
+  }
+  .form{
+    li{
+      border-bottom:solid 1px $color_E1E9F0;
       &:last-child{
-          border:none;
+        border:none;
       }
+    }
   }
   .text{
       @include px2px(font-size,30);
@@ -28,6 +35,7 @@ $color_02d1b1:#02d1b1;
     @extend .block;
     color: $white;
     line-height: px2rem(80);
+    background: $color_55C1DD;
     &:disabled{
       background: $color_E1E9F0;
     }
