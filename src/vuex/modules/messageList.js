@@ -10,7 +10,6 @@ const state = {
 }
 
 const actions = {
-    // 获取banner列表
     getMessageList: function ({commit}) {
         if (state.hasMore) {
             commit(types.MESSAGE_LIST_CURRENTPAGE);

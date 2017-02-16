@@ -63,18 +63,22 @@
 </template>
 <script>
 import { Vue, $, Common, wx } from 'js/base'
+import {mapGetters} from 'vuex'
 import CommonFooter from '../../components/common/footer.vue'
 export default{
     data () {
         return {
             isLogin: Common.isLogin(),
-            loginImgSrc: [require('./images/logined.jpg'), require('./images/nologin.jpg')],
-            my: []
+            loginImgSrc: [require('./images/logined.jpg'), require('./images/nologin.jpg')]
         }
     },
     mounted: function () {
         if (this.isLogin) {
-            this.$http.get('../../../static/api/center/getCenter.json').then((response) => {
+            (async () => {
+                let result = await this.$store.dispatch('gerCenterData')
+                this.$store.dispatch('getMessageCount', result.notification_amount)
+            })()
+            /* this.$http.get('../../../static/api/center/getCenter.json').then((response) => {
                 response.data['isLogin'] = Common.isLogin()
                 console.log(response.data)
                 this.my = response.data
@@ -82,8 +86,13 @@ export default{
                 this.$store.dispatch('getMessageCount', response.data.notification_amount)
             }, (response) => {
                 console.log(response)
-            })
+            }) */
         }
+    },
+    computed: {
+        ...mapGetters({
+            my: 'getCenterData'
+        })
     },
     components: {
         'common-footer': CommonFooter

@@ -29,5 +29,32 @@ export default {
         }).catch((error) => {
             return Promise.reject(error)
         })
+    },
+    /**
+     * 获取购物车数量
+     */
+    getShoppingCartNum: function (cb) {
+        axios.get(url + 'order/countShopCartNum.json?t=' + new Date() * 1 + '&callback=?').then(function (res) {
+            if (res.status >= 200 && res.status < 300) {
+                cb(res.data)
+            }
+        }).catch((error) => {
+            return Promise.reject(error)
+        })
+    },
+    /**
+     * 获取购物车数量
+     */
+    getCenterData: function (cb) {
+        return new Promise((resolve, reject) => {
+            axios.get(url + 'center/getCenter.json?t=' + new Date() * 1 + '&callback=?').then(function (res) {
+                if (res.status >= 200 && res.status < 300) {
+                    cb(res.data)
+                    resolve(res.data)
+                }
+            }).catch((error) => {
+                reject(error)
+            })
+        })
     }
 }
