@@ -56,5 +56,20 @@ export default {
                 reject(error)
             })
         })
+    },
+    /**
+     * 首页
+     */
+    getIndexData: function (cb) {
+        return new Promise((resolve, reject) => {
+            axios.get(url + 'home/homepageV3.json?t=' + new Date() * 1 + '&callback=?').then(function (res) {
+                if (res.status >= 200 && res.status < 300) {
+                    cb(res.data)
+                    resolve(res.data)
+                }
+            }).catch((error) => {
+                reject(error)
+            })
+        })
     }
 }

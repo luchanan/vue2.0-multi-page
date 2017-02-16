@@ -51,6 +51,7 @@
 </template>
 <script>
 import CommonFooter from '../../components/common/footer.vue'
+import {mapGetters} from 'vuex'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import store from '../../vuex/store'
 export default{
@@ -65,17 +66,27 @@ export default{
                 onSlideNextEnd: () => {
                     this.swiperSlideEnd()
                 }
-            },
-            indexData: []
+            }
         }
     },
     computed: {
         swiper () {
             return this.$refs.mySwiperA.swiper
-        }
+        },
+        ...mapGetters({
+            indexData: 'getIndexData'
+        })
     },
     mounted: function () {
-        this.$http.get('../../../static/api/home/homepageV3.json').then((response) => {
+        (async () => {
+            try {
+                await this.$store.dispatch('getIndexData')
+                this.swiperSlideEnd()
+            } catch (error) {
+                console.log(error);
+            }
+        })()
+        /* this.$http.get('../../../static/api/home/homepageV3.json').then((response) => {
             // indexData，然后html就可以遍历
             console.log(response.data)
             this.indexData = response.data
@@ -85,7 +96,7 @@ export default{
             })
         }, (response) => {
             console.log(response)
-        })
+        }) */
     },
     components: {
         swiper,

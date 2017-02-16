@@ -4,11 +4,13 @@ import messageList from './modules/messageList'
 import common from './modules/common'
 import my from './modules/my'
 import login from './modules/login'
+import index from './modules/index'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     modules: {
+        index,
         common,
         my,
         messageList,

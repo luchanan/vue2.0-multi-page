@@ -1,6 +1,8 @@
 // common
 export const PAGE_SET_INFO = 'PAGE_SET_INFO'
 export const SHOPPING_GET_NUM = 'SHOPPING_GET_NUM'
+// 首页
+export const INDEX_GET_DATA = 'INDEX_GET_DATA'
 // 获取消息列表数据
 export const MESSAGE_GET_LIST = 'MESSAGE_GET_LIST'
 export const MESSAGE_LIST_CURRENTPAGE = 'MESSAGE_LIST_CURRENTPAGE'

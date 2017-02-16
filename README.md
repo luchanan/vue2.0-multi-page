@@ -67,6 +67,18 @@ npm run build
 
 - .js或.vue中script使用import（或require）文件引入.scss文件没有自动添加浏览器前缀问题，npm run dev 和npm run build 编译后浏览器前缀解析（丢失部分）不一样问题
 
-- 加入vuex逐步取代之前bus组件通讯方式，axios代替之前的vue-resource方案
+- ~~加入vuex逐步取代之前bus组件通讯方式，axios代替之前的vue-resource方案~~ 已全部代替
+
+- 使用async/await来处理多个异步action且有依赖关系 
+
+## 目前完成的模块 ##
+
+- 首页
+ 
+- 登录、客服页
+
+- 我的主页
+
+- 消息列表  
 
 > 更多详情看note文件下
