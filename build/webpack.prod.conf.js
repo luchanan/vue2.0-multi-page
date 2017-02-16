@@ -39,7 +39,8 @@ var webpackConfig = merge(baseWebpackConfig, {
                 warnings: false
             }
         }),
-        new webpack.optimize.OccurenceOrderPlugin(),
+        // 有时候build出来的<script>依赖关系会乱，先注释
+        // new webpack.optimize.OccurenceOrderPlugin(),
 
         // extract css into its own file
         new ExtractTextPlugin(utils.assetsPath('css/[name].[contenthash].css')),
