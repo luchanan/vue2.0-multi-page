@@ -69,7 +69,8 @@ npm run build
 
 - ~~加入vuex逐步取代之前bus组件通讯方式，axios代替之前的vue-resource方案~~ 已全部代替
 
-- 使用async/await来处理多个异步action且有依赖关系 
+- 使用async/await来处理多个异步action且有依赖关系
+- dev模式下插入到html文件的script标签顺序没问题（例如，先是vendor.js里面包含vue,vuex集合，然后再是index.js），但是build后，顺序是反过来的，导致Cannot read property 'call' of undefined报错
 
 ## 目前完成的模块 ##
 
