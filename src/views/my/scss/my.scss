@@ -144,7 +144,7 @@ $color_e1e9f0:#e1e9f0;
     li{
       h1{
         border-bottom: solid 1px $color_e1e9f0;
-        padding: px2rem(32) 0;
+        padding: px2rem(35) 0;
         .tb_icon{
           @extend .relative;
           &[data-count]:after{
@@ -213,6 +213,14 @@ $color_e1e9f0:#e1e9f0;
         vertical-align: top;
       }
     }
+  }
+}
+// 个人中心 设置
+.setting{
+  .item{
+      a:before{
+        display: none important();
+      }
   }
 }
 
