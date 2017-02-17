@@ -4,7 +4,7 @@
  */
 import axios from 'axios'
 
-var url = process.env.NODE_ENV !== 'production' ? '/static/api/' : '';
+var url = process.env.NODE_ENV !== 'production' ? '/static/api/' : '/static/api/';
 export default {
     /**
      * 获取消息列表数据

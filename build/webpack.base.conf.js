@@ -134,7 +134,7 @@ for (var pathname in pages) {
       // https://github.com/kangax/html-minifier#options-quick-reference
     },
     // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-    //chunksSortMode: 'dependency'
+    chunksSortMode: 'dependency'
   };
   pathname=pathname.split("/")[1];//去掉views
   if (pathname in module.exports.entry) {
