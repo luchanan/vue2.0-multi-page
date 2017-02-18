@@ -43,6 +43,21 @@ export default {
         })
     },
     /**
+     * 获取我的收藏
+     */
+    getCollectList: function (currentPage, cb) {
+        return new Promise((resolve, reject) => {
+            axios.get(url + 'center/getFavourite.json?t=' + new Date() * 1 + '&currentPage=' + currentPage + '&callback=?').then(function (res) {
+                if (res.status >= 200 && res.status < 300) {
+                    cb(res.data)
+                    resolve(res.data)
+                }
+            }).catch((error) => {
+                reject(error)
+            })
+        })
+    },
+    /**
      * 获取购物车数量
      */
     getCenterData: function (cb) {

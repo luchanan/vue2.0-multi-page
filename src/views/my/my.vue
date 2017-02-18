@@ -46,7 +46,7 @@
     </ul>
     <ul class="item margin_b_20 bg_white">
       <li>
-        <a href="" class="arrow_right flex flex_v_center collect">
+        <a href="collect.html" class="arrow_right flex flex_v_center collect">
           <h1 class="flex_item">我的收藏</h1>
         </a>
       </li>

@@ -1,7 +1,7 @@
 import {Common} from 'js/base'
 import api from '../api'
-// 主页
 import * as types from '../mutation-types'
+// 主页
 const state = {
     listData: [],
     hasMore: true,
