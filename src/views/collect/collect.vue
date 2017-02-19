@@ -1,5 +1,5 @@
 <template>
-  <div class="container padding_tb_120 collect">
+  <div class="container padding_t_122 collect">
     <ul class="bg_white">
       <li v-for="item in list">
         <a href="" class="flex padding_24">
@@ -27,7 +27,8 @@
   export default{
       data () {
           return {
-              loading: false
+              loading: false,
+              first: true
           }
       },
       created: function () {
@@ -59,18 +60,19 @@
                       this.finishAction()
                       return false
                   }
-                  // 第一次无限加载数量比较少(2.3条)且没有第二页数据的时候，需要显示没有数据，加入async await，如果没有加入
-                  // 无限加载这个组件一直在可视区域内，且不能滚动请求数据
+                  // 当返回列表个数比较少且没有第二页数据的时候，出现数据加载中字样，应该是没有更多数据
+                  // 当返回列表个数比较少且有第二页数据的时候，无限加载组件在可视区域内（不滚动获取第二页的时候），那么它不会获取第二页的数据返回，所以要手动触发第二页的数据
                   (async () => {
                       await this.$store.dispatch('getCollectList')
                       if (!this.$store.getters.collectHasMore) {
                           this.finishAction()
                           return false
+                      } else if (this.first && this.$store.getters.collectHasMore) {
+                          this.fetchData()
+                          this.first = false
                       }
                   })()
-                  setTimeout(() => {
-                      this.loading = false
-                  }, 0)
+                  this.loading = false
               }
           },
           finishAction () {
