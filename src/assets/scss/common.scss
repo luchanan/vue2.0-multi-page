@@ -75,5 +75,40 @@
     @extend .contain;
   }
 }
+.checkbox_wrap{
+  padding-right: px2rem(24);
+  .checkbox_label{
+    display: inline-block;
+    vertical-align:top;
+    line-height: 1;
+    position: relative;
+    width:px2rem(40);
+    height: 100%;
+    input{
+      @extend .none;
+      &:checked + span:before{
+        background: url(../images/icon/checkbox_on.png) scroll no-repeat center center;
+        @include bg_size_rem(40);
+      }
+    }
+    span{
+      width:100%;
+      height:px2rem(40);
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: px2rem(-20);
+      &:before{
+        content:'';
+        width:100%;
+        height:100%;
+        display:inline-block;
+        background: url(../images/icon/checkbox.png) scroll no-repeat center center;
+        @include bg_size_rem(40);
+      }
+    }
+  }
+}
 /*warn end*/
 

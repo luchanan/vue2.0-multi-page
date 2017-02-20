@@ -3,6 +3,9 @@
     <ul class="bg_white">
       <li v-for="item in list">
         <a href="" class="flex padding_24">
+          <div class="checkbox_wrap" v-show="checkboxShow">
+            <label class="checkbox_label"><input type="checkbox" name="cb"><span></span></label>
+          </div>
           <div class="bg bg_lazyload" lazy=loading><img v-lazy="item.image"></div>
           <div class="flex_item itemInfo flex">
             <h1>{{item.name}}</h1>
@@ -35,11 +38,12 @@
           this.$store.dispatch('setPageInfo', {
               headerTitle: '我的收藏',
               left: {className: 'back'},
-              'right': {hide: true}
+              'right': {hide: true, userFont: true, font: '編輯', fontClass: 'font'}
           })
       },
       computed: {
           ...mapState({
+              checkboxShow: state => state.collect.showCheckbox,
               list: (state, getters) => {
                   return state.collect.collectList
               },

@@ -2,6 +2,7 @@ import * as types from '../mutation-types'
 import {Common} from 'js/base'
 import api from '../api'
 const state = {
+    showCheckbox: false,
     collectList: [],
     hasMore: true,
     currentPage: 0
@@ -19,7 +20,8 @@ const actions = {
 }
 const getters = {
     getCollectList: state => state.collectList,
-    collectHasMore: state => state.hasMore
+    collectHasMore: state => state.hasMore,
+    getCheckboxShow: state => state.showCheckbox
 }
 
 const mutations = {
@@ -30,6 +32,13 @@ const mutations = {
     [types.COLLECT_LIST_CURRENTPAGE] (state) {
         state.currentPage += 1
         state.hasMore = false
+    },
+    [types.COLLECT_SHOW_CHECKBOX] (state) {
+        if (state.showCheckbox) {
+            state.showCheckbox = false
+        } else {
+            state.showCheckbox = true
+        }
     }
 }
 

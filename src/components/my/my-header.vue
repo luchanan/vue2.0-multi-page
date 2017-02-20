@@ -2,7 +2,7 @@
   <header class="center_header">
     <a :href="setLeftHeaderUrl" :class="setLeftHeader" @click="leftHeader"></a>
     <h1>{{pageInfo.headerTitle}}</h1>
-    <a href="messageList.html" :class="setRightHeader" :data-count="messageCount"></a>
+    <a :href="setRightHeaderUrl" :class="setRightHeader" :data-count="messageCount" @click="rightHeader">{{pageInfo.right.font}}</a>
   </header>
 </template>
 
@@ -19,12 +19,20 @@
           setRightHeader: function () {
               return {
                   'header_right my_message': this.$store.getters.getPageInfo.right === '',
-                  'header_right hide': this.$store.getters.getPageInfo.right.hide === true
+                  'header_right hide': this.$store.getters.getPageInfo.right.hide === true && this.$store.getters.getPageInfo.right.userFont === undefined,
+                  'header_right font': this.$store.getters.getPageInfo.right.userFont === true
               }
           },
           setLeftHeaderUrl: function () {
               if (this.$store.getters.getPageInfo.left === '') {
                   return 'setting.html'
+              } else {
+                  return 'javascript:void(0)'
+              }
+          },
+          setRightHeaderUrl: function () {
+              if (this.$store.getters.getPageInfo.right.userFont === undefined) {
+                  return 'messageList.html'
               } else {
                   return 'javascript:void(0)'
               }
@@ -35,10 +43,16 @@
           })
       },
       methods: {
-          leftHeader: function (e) {
+          leftHeader (e) {
               if (e.target.getAttribute('href') === 'javascript:void(0)') {
                   window.history.go(-1)
               }
+          },
+          rightHeader (e) {
+              if (this.$store.getters.getPageInfo.right.userFont === undefined) {
+                  return
+              }
+              this.$store.commit('COLLECT_SHOW_CHECKBOX')
           }
       }
   }

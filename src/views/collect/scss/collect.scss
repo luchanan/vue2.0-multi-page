@@ -21,6 +21,7 @@ $color_e1e9f0:#e1e9f0;
     flex-direction: column;
   }
   .bottom{
+    align-items: baseline;
     @include px2px(font-size,24);
     .price{
       @include px2px(font-size,32);
