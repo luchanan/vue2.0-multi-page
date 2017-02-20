@@ -1,3 +1,7 @@
+# 预览地址：
+
+[https://luchanan.github.io/vue2.0-multi-page-dist/views/index.html](https://luchanan.github.io/vue2.0-multi-page-dist/views/index.html)
+
 # Vue-cli(2.0) 多页面开发实战（逐步开发中...）
 
 > 由于之前主要使用jquery方式开发，现在想换一种方式，使用MVVM开发(感觉vue跟我之前用的angular1.X差不多类似)，所以在开发中会遇到很多问题，借此来记录一下；或者有很多不足，又或者里面可能存在些错误，anyway，请多多指教，共勉。

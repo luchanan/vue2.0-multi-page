@@ -3,8 +3,8 @@
  * api配置
  */
 import axios from 'axios'
-
-var url = process.env.NODE_ENV !== 'production' ? '/static/api/' : '/static/api/';
+var config = require('../../config')
+var url = process.env.NODE_ENV !== 'production' ? '/static/api/' : config.build.assetsPublicPath + config.build.assetsSubDirectory + '/api/'
 export default {
     /**
      * 获取消息列表数据

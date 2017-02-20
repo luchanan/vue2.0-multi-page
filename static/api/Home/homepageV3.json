@@ -3,7 +3,7 @@
   "error_msg": "OK",
   "banner_list": [
     {
-      "image": "../static/api/Home/images/banner2.jpg",
+      "image": "../static/api/home/images/banner2.jpg",
       "url": "http://www.frontsucai.com/views/activity/american_2.html",
       "app_url": {
         "page": "WEB_VIEW",
@@ -22,7 +22,7 @@
       "display_type": "0"
     },
     {
-      "image": "../static/api/Home/images/banner1.jpg",
+      "image": "../static/api/home/images/banner1.jpg",
       "url": "http://www.frontsucai.com/views/activity/canyon.html",
       "app_url": {
         "page": "WEB_VIEW",
@@ -43,7 +43,7 @@
   ],
   "line_list": [
     {
-      "image": "../static/api/Home/images/r1.jpg",
+      "image": "../static/api/home/images/r1.jpg",
       "url": "app/views/activity/lm_line.html",
       "app_url": {
         "page": "WEB_VIEW",
@@ -62,7 +62,7 @@
       "display_type": "0"
     },
     {
-      "image": "../static/api/Home/images/r2.jpg",
+      "image": "../static/api/home/images/r2.jpg",
       "url": "app/views/activity/activity20161101.html",
       "app_url": {
         "page": "WEB_VIEW",
@@ -103,7 +103,7 @@
       "image": "0",
       "data": [
         {
-          "image": "../static/api/Home/images/mu1.jpg",
+          "image": "../static/api/home/images/mu1.jpg",
           "url": "/taiguo/puji/",
           "app_url": {
             "page": "DESTINATION",
@@ -123,7 +123,7 @@
           "display_type": "0"
         },
         {
-          "image": "../static/api/Home/images/mu2.jpg",
+          "image": "../static/api/home/images/mu2.jpg",
           "url": "/taiguo/qingmai/",
           "app_url": {
             "page": "DESTINATION",
@@ -143,7 +143,7 @@
           "display_type": "0"
         },
         {
-          "image": "../static/api/Home/images/mu3.jpg",
+          "image": "../static/api/home/images/mu3.jpg",
           "url": "/meiguo/saiban/",
           "app_url": {
             "page": "DESTINATION",
@@ -163,7 +163,7 @@
           "display_type": "0"
         },
         {
-          "image": "../static/api/Home/images/mu4.jpg",
+          "image": "../static/api/home/images/mu4.jpg",
           "url": "/xinxilan/huanghouzhen/",
           "app_url": {
             "page": "DESTINATION",
@@ -183,7 +183,7 @@
           "display_type": "0"
         },
         {
-          "image": "../static/api/Home/images/mu5.jpg",
+          "image": "../static/api/home/images/mu5.jpg",
           "url": "/malaixiya/Shaba/",
           "app_url": {
             "page": "DESTINATION",
@@ -203,7 +203,7 @@
           "display_type": "0"
         },
         {
-          "image": "../static/api/Home/images/mu6.jpg",
+          "image": "../static/api/home/images/mu6.jpg",
           "url": "/zhongguo/lijiang/",
           "app_url": {
             "page": "DESTINATION",
@@ -245,7 +245,7 @@
       "image": "0",
       "data": [
         {
-          "image": "../static/api/Home/images/remai1.jpg",
+          "image": "../static/api/home/images/remai1.jpg",
           "url": "/app/views/product/detail.php?id=149",
           "app_url": {
             "page": "PRODUCT",
@@ -266,7 +266,7 @@
           "sale_amount": "1773"
         },
         {
-          "image": "../static/api/Home/images/remai2.jpg",
+          "image": "../static/api/home/images/remai2.jpg",
           "url": "/app/views/product/detail.php?id=312",
           "app_url": {
             "page": "PRODUCT",
@@ -287,7 +287,7 @@
           "sale_amount": "451"
         },
         {
-          "image": "../static/api/Home/images/remai3.jpg",
+          "image": "../static/api/home/images/remai3.jpg",
           "url": "/app/views/product/detail.php?id=20",
           "app_url": {
             "page": "PRODUCT",
@@ -330,7 +330,7 @@
       "image": "0",
       "data": [
         {
-          "image": "../static/api/Home/images/a1.jpg",
+          "image": "../static/api/home/images/a1.jpg",
           "url": "http://www.frontsucai.com/app/views/activity/zt_lj.html",
           "app_url": {
             "page": "WEB_VIEW",
@@ -349,7 +349,7 @@
           "display_type": "0"
         },
         {
-          "image": "../static/api/Home/images/a2.jpg",
+          "image": "../static/api/home/images/a2.jpg",
           "url": "http://www.frontsucai.com/app/views/activity/qingmai.html",
           "app_url": {
             "page": "WEB_VIEW",
@@ -368,7 +368,7 @@
           "display_type": "0"
         },
         {
-          "image": "../static/api/Home/images/a3.jpg",
+          "image": "../static/api/home/images/a3.jpg",
           "url": "http://www.frontsucai.com/app/views/activity/american_1.html",
           "app_url": {
             "param": {
@@ -409,7 +409,7 @@
       "image": "0",
       "data": [
         {
-          "image": "../static/api/Home/images/l1.jpg",
+          "image": "../static/api/home/images/l1.jpg",
           "url": "/app/views/product/detail.php?id=23",
           "app_url": {
             "page": "PRODUCT",
@@ -430,7 +430,7 @@
           "sale_amount": "26"
         },
         {
-          "image": "../static/api/Home/images/l2.jpg",
+          "image": "../static/api/home/images/l2.jpg",
           "url": "/app/views/product/detail.php?id=175",
           "app_url": {
             "page": "PRODUCT",
@@ -451,7 +451,7 @@
           "sale_amount": "243"
         },
         {
-          "image": "../static/api/Home/images/l3.jpg",
+          "image": "../static/api/home/images/l3.jpg",
           "url": "/app/views/product/detail.php?id=304",
           "app_url": {
             "page": "PRODUCT",

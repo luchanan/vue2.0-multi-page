@@ -14,7 +14,8 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 var projectRoot = path.resolve(__dirname, '../')
 var srcDir = path.resolve(__dirname, '../src')
 var entries = utils.getEntries(srcDir + '/views/**/*.js')
-
+var libs=path.resolve(__dirname, '../static/js/lib')
+entries['flexible'] = path.resolve(__dirname, libs+'/flexible/flexible.js')
 var autoprefixerConf = autoprefixer({ browsers: ['last 2 versions','Android >= 4.0','iOS >= 6'] });
 
 module.exports = {
@@ -140,7 +141,7 @@ for (var pathname in pages) {
   if (pathname in module.exports.entry) {
     conf.inject = 'body';
     //如果每个html没有进入这里的话，那么全部js将会插入html
-    conf.chunks = [pathname, 'vendor', 'manifest', 'bootstrap'],
+    conf.chunks = ['flexible', pathname, 'vendor', 'manifest', 'bootstrap'],
     conf.hash = true;
   }
   module.exports.plugins.push(new HtmlWebpackPlugin(conf));
