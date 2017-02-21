@@ -1,4 +1,5 @@
 <template>
+
   <div class="container padding_t_122 messageList">
     <ul class="bg_white">
       <li v-for="list in listData">

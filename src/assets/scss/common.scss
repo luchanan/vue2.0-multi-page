@@ -51,7 +51,8 @@
 /*img lazyload style*/
 .img_lazyload{
   &[lazy=loading]{
-
+      background:url(../images/icon/lazy_load_loading.png) scroll no-repeat center center important();
+      background-size: px2rem(159) important();
   }
   &[lazy=error]{
 

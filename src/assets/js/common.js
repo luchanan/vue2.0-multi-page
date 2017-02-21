@@ -6,7 +6,10 @@ const Common = {
         return true
     },
     hasDeviceId: false,
-    index2PageCount: (index, count) => Math.ceil(index / (count || 10)) // return lastIndex转总页数
+    index2PageCount: (index, count) => Math.ceil(index / (count || 10)), // return lastIndex转总页数
+    goBack: () => {
+        window.history.go(-1)
+    }
 }
 // 使用：Common.isLogin
 module.exports = Common

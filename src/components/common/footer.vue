@@ -2,8 +2,8 @@
   <footer class="footer">
     <ul class="clearfix">
       <li><a href="index.html" data-font="首页"></a> </li>
-      <li><a href="" data-font="目的地" class="destination"></a> </li>
-      <li><a href="" data-font="购物车" class="cart" :data-count="getShoppingCartNum"></a></li>
+      <li><a href="destinationIndex.html" data-font="目的地" class="destination"></a> </li>
+      <li><a href="shoppingCart.html" data-font="购物车" class="cart" :data-count="getShoppingCartNum"></a></li>
       <li><a href="my.html" data-font="我的" class="my"></a></li>
     </ul>
   </footer>

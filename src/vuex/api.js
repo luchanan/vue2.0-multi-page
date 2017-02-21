@@ -86,5 +86,17 @@ export default {
                 reject(error)
             })
         })
+    },
+    /**
+     * 获取目的地首页
+     */
+    getDestinationIndex: function (cb) {
+        axios.get(url + 'destination/getDestination.json?t=' + new Date() * 1 + '&callback=?').then(function (res) {
+            if (res.status >= 200 && res.status < 300) {
+                cb(res.data)
+            }
+        }).catch((error) => {
+            return Promise.reject(error)
+        })
     }
 }

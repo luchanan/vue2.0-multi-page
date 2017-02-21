@@ -2,11 +2,13 @@
   <header class="center_header">
     <a :href="setLeftHeaderUrl" :class="setLeftHeader" @click="leftHeader"></a>
     <h1>{{pageInfo.headerTitle}}</h1>
+    <div :class="searchShow"><input type="text" value="搜索目的地"></div>
     <a :href="setRightHeaderUrl" :class="setRightHeader" :data-count="messageCount" @click="rightHeader">{{pageInfo.right.font}}</a>
   </header>
 </template>
 
 <script>
+  import {Common} from 'js/base'
   import {mapGetters, mapState} from 'vuex'
   export default {
       computed: {
@@ -21,6 +23,12 @@
                   'header_right my_message': this.$store.getters.getPageInfo.right === '',
                   'header_right hide': this.$store.getters.getPageInfo.right.hide === true && this.$store.getters.getPageInfo.right.userFont === undefined,
                   'header_right font': this.$store.getters.getPageInfo.right.userFont === true
+              }
+          },
+          searchShow: function () {
+              return {
+                  'search hide': this.$store.getters.getPageInfo.type === '',
+                  'search': this.$store.getters.getPageInfo.type !== ''
               }
           },
           setLeftHeaderUrl: function () {
@@ -45,7 +53,7 @@
       methods: {
           leftHeader (e) {
               if (e.target.getAttribute('href') === 'javascript:void(0)') {
-                  window.history.go(-1)
+                  Common.goBack()
               }
           },
           rightHeader (e) {
@@ -68,6 +76,24 @@
     height: px2rem(102);
     padding:px2rem(24) 0;
     background:$white;
+    .search{
+      margin:0 px2rem(24) 0 px2rem(102);
+      height:px2rem(60);
+      line-height:px2rem(60);
+      border-radius:px2rem(31);
+      border:1px solid $color_F3F5F8;
+      overflow:hidden;
+      input{
+        padding-left: px2rem(68);
+        background: $color_F3F5F8;
+        @include px2px(font-size,28);
+        width: 100%;
+        height: 100%;
+        color:$color_8FA0B1;
+        background:$color_F3F5F8 url('images/search.png') px2rem(24) center no-repeat;
+        background-size:px2rem(28);
+      }
+    }
     h1{
       text-align: center;
       @include px2px(font-size,34);
@@ -113,12 +139,12 @@
          }
       }
     }
+    .hide{
+      @extend .none;
+    }
     .header_right{
       left:auto;
       right:0;
-      &.hide{
-        @extend .none;
-      }
       &:before{
         content: '';
         background:url(images/message.png) scroll no-repeat center center;

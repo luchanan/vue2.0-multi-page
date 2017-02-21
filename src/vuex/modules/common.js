@@ -4,6 +4,7 @@ const state = {
     headerTitle: '我的',
     left: '',
     right: '',
+    type: '',
     shoppingCartNum: 0
 }
 

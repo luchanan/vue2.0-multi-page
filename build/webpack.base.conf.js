@@ -46,8 +46,8 @@ module.exports = {
         fallback: [path.join(__dirname, '../node_modules')]
     },
     externals: {
-        'wx': 'jWeixin'// , // 使用cdn资源，暴露wx
-        //'jquery': 'jQuery'  // 使用cdn资源，暴露jquery
+        'wx': 'jWeixin', // 使用cdn资源，暴露wx
+        'jquery': 'jQuery'  // 使用cdn资源，暴露jquery
     },
     module: {
         preLoaders: [
