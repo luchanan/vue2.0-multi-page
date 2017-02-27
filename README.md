@@ -34,7 +34,7 @@ npm run build
 	
 2. 熟悉相关语法（基本了解就好，毕竟做项目的时候才会发现更多的问题）
 	- [es6基本使用方法](http://es6.ruanyifeng.com/)
-	- [vue2.0官网](https://cn.vuejs.org/v2/guide/)
+	- [vue2.0官网](https://cn.vuejs.org/v2/guide/)，[vue2 api](https://cn.vuejs.org/v2/api/)
 	- [sass基本语法](http://www.w3cplus.com/sassguide/)
 
 ## 遇到的问题 ##

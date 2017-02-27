@@ -1,11 +1,11 @@
 <template>
   <div class="container destination_index">
     <section class="scroll_wrap flex">
-      <div id="scroll_left">
+      <iscroll-view ref="scrollView" id="scroll_left" class="scroll-view">
         <ul>
-          <li data-id="1" :class="index===0?'on':''" v-for="(countries, index) in country">{{countries.country_name}}</li>
+          <li :data-id="countries.id" :class="index===0?'on':''" v-for="(countries, index) in country">{{countries.country_name}}</li>
         </ul>
-      </div>
+      </iscroll-view>
       <div id="scroll_right" class="flex_item">
         <ul>
           <li class="clearfix" v-for="countries in country">
@@ -27,8 +27,12 @@
   </div>
 </template>
 <script>
+import {Vue} from 'js/base'
 import {mapGetters} from 'vuex'
+import IScrollView from 'vue-iscroll-view'
+import IScroll from 'iscroll'
 import CommonFooter from '../../components/common/footer.vue'
+Vue.use(IScrollView, IScroll)
 export default{
     created: function () {
         this.$store.dispatch('setPageInfo', {
@@ -48,6 +52,23 @@ export default{
         })
     },
     mounted: function () {
+        // this.$refs.scrollView.refresh()
+    },
+    updated: function () {
+        const headerHeight = document.querySelector('header').clientHeight
+        const footerHeight = document.querySelector('.footer').clientHeight
+        document.querySelector('.destination_index').style.height = (window.lib.flexible.dpr * window.screen.height) - (headerHeight + footerHeight) + 'px'
     }
 }
 </script>
+<style>
+  .scroll-view {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    height: 600px;
+  }
+</style>

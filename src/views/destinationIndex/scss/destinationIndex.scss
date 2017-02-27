@@ -7,10 +7,14 @@
   top:px2rem(102);
   bottom:px2rem(100);
   width:100%;
+  .scroll_wrap{
+    height: 100%;
+  }
   #scroll_left{
-    position:relative;/*important*/
-    height:100%;
+    position:relative;/*iscroll important*/
+    height:100%;  /*iscroll important 此元素要有具体高度*/
     width:px2rem(186);
+    overflow: hidden;
     li{
       /* transform:translate3d(0,0,0); */
       text-align:center;
