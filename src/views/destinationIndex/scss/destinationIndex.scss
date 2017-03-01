@@ -22,7 +22,7 @@
       @include px2px(font-size,28);
       line-height:px2rem(88);
       color:$color_424242;
-      &.on,&:first-child{
+      &.on{
         line-height:px2rem(148);
         background:#fff;
         color:$color_55C1DD;
