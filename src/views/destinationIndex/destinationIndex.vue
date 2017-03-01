@@ -68,6 +68,8 @@ export default{
         const headerHeight = document.querySelector('header').clientHeight
         const footerHeight = document.querySelector('.footer').clientHeight
         document.querySelector('.destination_index').style.height = (window.lib.flexible.dpr * window.screen.height) - (headerHeight + footerHeight) + 'px'
+        this.$refs.scrollViewLeft.refresh()
+        this.$refs.scrollViewRight.refresh()
     }
 }
 </script>

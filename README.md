@@ -77,6 +77,8 @@ npm run build
 
 - dev模式下插入到html文件的script标签顺序没问题（例如，先是vendor.js里面包含vue,vuex集合，然后再是index.js），但是build后，顺序是反过来的，导致Cannot read property 'call' of undefined报错
 
+-iscroll5.2 在谷歌V56模拟器或者真机不能滑动的解决方案
+
 ## 目前完成的模块 ##
 
 - 首页
