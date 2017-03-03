@@ -77,6 +77,17 @@
   }
 }
 .checkbox_wrap{
+  &.select_all span:after{
+    content:'全选';
+    display:inline-block;
+    width: px2rem(100);
+    text-align: left;
+    position: absolute;
+    top:0;
+    left: px2rem(60);
+    line-height: px2rem(40);
+    @include px2px(font-size,30)
+  }
   padding-right: px2rem(24);
   .checkbox_label{
     display: inline-block;

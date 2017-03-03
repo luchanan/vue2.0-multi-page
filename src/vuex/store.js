@@ -7,6 +7,7 @@ import login from './modules/login'
 import index from './modules/index'
 import collect from './modules/collect'
 import destinationIndex from './modules/destinationIndex'
+import shoppingCart from './modules/shoppingCart'
 
 Vue.use(Vuex)
 
@@ -18,7 +19,8 @@ export default new Vuex.Store({
         messageList,
         login,
         collect,
-        destinationIndex
+        destinationIndex,
+        shoppingCart
     },
     strict: process.env.NODE_ENV !== 'production'// 线上环境关掉
 })

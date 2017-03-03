@@ -3,6 +3,9 @@
   left: 0;
   width: 100%;
 }
+%pink{
+  color: $color_FC5D7B;
+}
 .relative{
   position: relative;
 }
@@ -57,6 +60,10 @@
 }
 .padding_tb_120{
   padding: px2rem(122) 0 px2rem(120) 0;
+}
+
+.padding_tb_100{
+  padding: px2rem(122) 0 px2rem(100) 0;
 }
 .margin_b_20{
   margin-bottom: px2rem(20);
