@@ -42,6 +42,7 @@
     "eslint-plugin-promise": "latest",
     "eslint-plugin-standard": "^2.0.1",
     "eventsource-polyfill": "^0.9.6",
+    "exports-loader": "^0.6.4",
     "expose-loader": "^0.7.1",
     "express": "^4.14.0",
     "extract-loader": "0.0.2",
