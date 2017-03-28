@@ -175,9 +175,11 @@ resolve: {
             'base64': path.resolve(__dirname, '../static/js/lib/base64.js'),
         }
     }
-- useBase64.vue
 
 ```
+- useBase64.vue
+
+```javascript
 import b from 'base64'
 console.log(b.encode('123'))//输出：MTIz
 ```
