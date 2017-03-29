@@ -116,7 +116,7 @@ efined);\n}.call(global));\n/* WEBPACK VAR INJECTION */}.call(exports, (function
 
 ```javarcript
 externals: {
-    'base64': 'Base64' 
+    'base64': 'Base64'
 }
 
 ```
@@ -163,5 +163,27 @@ require('imports?this=>global!base64')	  //按照webpack文档，base64的源码
 // require('expose?this=>window!base64') //或者这样
 console.log(window.Base64.encode('123')) //输出：MTIz
 ```
+方法三：目前已经支持es2015，amd and nodejs modlue.exports,自行下载最新
+
+- webpack.base.conf.js配置
+
+```javascript
+resolve: {
+		...
+        alias: {
+			...
+            'base64': path.resolve(__dirname, '../static/js/lib/base64.js'),
+        }
+    }
+
+```
+- useBase64.vue
+
+```javascript
+import b from 'base64'
+console.log(b.encode('123'))//输出：MTIz
+```
+
+参考资料：https://babeljs.io/faq/#why-is-this-being-remapped-to-undefined-
 
 ...期待更好的方法
