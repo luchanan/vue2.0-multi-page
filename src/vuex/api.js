@@ -100,7 +100,7 @@ export default {
     deleteShoppingCartList: function (parmas, cb) {
         axios.get(url + 'order/deleteShopCart.json?t=' + new Date() * 1 + '&callback=?').then(function (res) {
             if (res.status >= 200 && res.status < 300) {
-                cb(res.data)
+                cb(res.data, parmas)
             }
         }).catch((error) => {
             return Promise.reject(error)

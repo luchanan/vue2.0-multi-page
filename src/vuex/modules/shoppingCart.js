@@ -29,7 +29,9 @@ const actions = {
     },
     deleteShoppingCartList: function ({commit, state}) {
         commit(types.SHOPPINGCART_DELETE_ARRAY);
+        var ids = state.deleteIDs
         api.deleteShoppingCartList(state.deleteIDs, function (res) {
+            // commit只能接受两个参数，想传多个参数的话，可以在第二个参数以array or object的方式传入
             commit(types.SHOPPINGCART_DELETE_SELECT, res);
         })
     }
@@ -53,6 +55,10 @@ const mutations = {
         state.deleteIDs = deleteID
     },
     [types.SHOPPINGCART_DELETE_SELECT] (state, res) {
+        state.deleteIDs.forEach(function (item, index, array) {
+            let cIndex = state.shoppingList.map(x => x.id).indexOf(item)
+            state.shoppingList.splice(cIndex, 1)
+        })
     },
     [types.SHOPPINGCART_SELECT_ITEM] (state, id) {
         var len = state.shoppingList.length
@@ -98,6 +104,11 @@ const mutations = {
             state.buyBtnDisabled = true
             state.buyBtnCurrentFont = buyBtnFont.go
             state.isDelete = false
+            // 有一个被选中
+            var oneSelected = state.shoppingList.some(function (item, index) {
+                return item.checked;
+            });
+            state.buyBtnDisabled = oneSelected === false;
         } else {
             state.shoppingCartCheckbox = true
             state.priceShow = {visibility: 'hidden'}
