@@ -33,7 +33,7 @@ const mutations = {
         state.currentPage += 1
         state.hasMore = false
     },
-    [types.COLLECT_SHOW_CHECKBOX] (state) {
+    [types.SHOW_CHECKBOX] (state) {
         if (state.showCheckbox) {
             state.showCheckbox = false
         } else {

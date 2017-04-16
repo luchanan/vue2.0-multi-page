@@ -1,10 +1,10 @@
 <template>
   <div class="container padding_tb_100 collect shoppingcart">
     <ul class="bg_white">
-      <li v-for="item in list">
+      <li v-for="(item,index) in list">
         <a href="" class="flex padding_24">
           <div class="checkbox_wrap">
-            <label class="checkbox_label"><input type="checkbox" name="cb"><span></span></label>
+            <label class="checkbox_label"><input type="checkbox" name="cb" :checked="item.checked" v-on:change="itemCheckedEvent(item.id)"><span></span></label>
           </div>
           <div class="bg bg_lazyload" lazy=loading><img v-lazy="item.image"></div>
           <div class="flex_item itemInfo flex">
@@ -30,11 +30,11 @@
     </ul>
     <footer class="action flex bg_white fixed">
       <div class="checkbox_wrap select_all">
-        <label class="checkbox_label"><input type="checkbox" name="cb"><span></span></label>
+        <label class="checkbox_label"><input type="checkbox" name="cb" v-on:change="checkAllEvent" :checked="checkAll"><span></span></label>
       </div>
       <div class="flex_item flex flex_v_center">
-        <div class="price flex_item">合计:¥960</div>
-        <input type="button" value="去结算" class="btn" disabled>
+        <div class="price flex_item" :style="priceShow">合计:¥<span>{{totalPrice}}</span></div>
+        <input type="button" :value="buyBtnCurrentFont" class="btn" :disabled="buyBtnDisabled" @click="submitForm">
       </div>
     </footer>
     <mugen-scroll :handler="fetchData" :should-handle="!loading">
@@ -58,11 +58,18 @@ export default{
         this.$store.dispatch('setPageInfo', {
             headerTitle: '购物车',
             left: {className: 'back'},
-            'right': {hide: true, userFont: true, font: '編輯', fontClass: 'font'}
+            'right': {hide: true, userFont: true, font: '编辑', fontClass: 'font'}
         })
     },
     computed: {
         ...mapState({
+            isDelete: state => state.shoppingCart.isDelete,
+            itemChecked: state => state.shoppingCart.itemChecked,
+            checkAll: state => state.shoppingCart.checkAll,
+            buyBtnCurrentFont: state => state.shoppingCart.buyBtnCurrentFont,
+            priceShow: state => state.shoppingCart.priceShow,
+            totalPrice: state => state.shoppingCart.totalPrice,
+            buyBtnDisabled: state => state.shoppingCart.buyBtnDisabled,
             checkboxShow: state => state.shoppingCart.shoppingCartCheckbox,
             list: (state, getters) => {
                 return state.shoppingCart.shoppingList
@@ -77,6 +84,19 @@ export default{
         listBottom
     },
     methods: {
+        submitForm () {
+            if (this.isDelete) {
+                this.$store.dispatch('deleteShoppingCartList')
+            } else {
+                window.location.href = '/'
+            }
+        },
+        checkAllEvent () {
+            this.$store.commit('SHOPPINGCART_SELECT_ALL')
+        },
+        itemCheckedEvent (index) {
+            this.$store.commit('SHOPPINGCART_SELECT_ITEM', index)
+        },
         fetchData () {
             if (!this.loading) {
                 this.loading = true;

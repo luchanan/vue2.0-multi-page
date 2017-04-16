@@ -17,6 +17,7 @@ export default {
         let self = this
         document.querySelector('footer').children[0].children[self.footerIndex].children[0].classList.add('on')
         if (Common.isLogin()) {
+            // 触发action
             this.$store.dispatch('getShoppingCartNum')
             /* document.querySelector('.cart').setAttribute('data-count', this.$store.getters.getShoppingCartNum)
             this.$http.get('../../../static/api/order/countShopCartNum.json').then((response) => {

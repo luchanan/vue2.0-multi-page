@@ -60,7 +60,7 @@
               if (this.$store.getters.getPageInfo.right.userFont === undefined) {
                   return
               }
-              this.$store.commit('COLLECT_SHOW_CHECKBOX')
+              this.$store.commit('SHOW_CHECKBOX')
           }
       }
   }
