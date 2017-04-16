@@ -8,9 +8,9 @@
       </iscroll-view>
       <iscroll-view ref="scrollViewRight" id="scroll_right" class="flex_item" :options="{preventDefault: false,disableMouse: true,disablePointer: true,disableTouch:false}">
         <ul>
-          <li class="clearfix" v-for="countries in country" :data-id="countries.id">
-            <a href="" v-for="city in countries.city_list">
-              <div class="img_wrap">
+          <li class="clearfix" v-for="(countries, index) in country" :data-id="countries.id" :pindex="index">
+            <a href="" v-for="(city, index) in countries.city_list" :data-pindex="pindex" :cindex="index" :index="index">
+              <div class="img_wrap" :data-cindex="cindex">
                 <div class="bg"></div>
                 <img v-lazy="city.app_image" src="" class="img_lazyload" lazy="loading">
                 <div class="font">
