@@ -1,6 +1,4 @@
 import { Indicator } from 'mint-ui';
-import 'mint-ui/lib/indicator/style.css';
-import 'mint-ui/lib/spinner/style.css';
 import * as types from '../mutation-types'
 import api from '../api'
 const state = {

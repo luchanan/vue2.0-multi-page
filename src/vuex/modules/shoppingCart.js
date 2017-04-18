@@ -2,6 +2,7 @@ import store from '../store'
 import * as types from '../mutation-types'
 import {Common, Vue} from 'js/base'
 import api from '../api'
+import { Toast, MessageBox } from 'mint-ui';
 const buyBtnFont = {go: '去结算', delete: '删除'}
 const state = {
     shoppingCartCheckbox: false,
@@ -28,11 +29,19 @@ const actions = {
         }
     },
     deleteShoppingCartList: function ({commit, state}) {
-        commit(types.SHOPPINGCART_DELETE_ARRAY);
         var ids = state.deleteIDs
-        api.deleteShoppingCartList(state.deleteIDs, function (res) {
-            // commit只能接受两个参数，想传多个参数的话，可以在第二个参数以array or object的方式传入
-            commit(types.SHOPPINGCART_DELETE_SELECT, res);
+        MessageBox({
+            title: '',
+            showCancelButton: true,
+            message: '确定删除这' + ids.length + '个商品?',
+            callback: function (action) {
+                if (action === 'confirm') {
+                    api.deleteShoppingCartList(state.deleteIDs, function (res) {
+                        // commit只能接受两个参数，想传多个参数的话，可以在第二个参数以array or object的方式传入
+                        commit(types.SHOPPINGCART_DELETE_SELECT, res);
+                    })
+                }
+            }
         })
     }
 }
@@ -58,6 +67,10 @@ const mutations = {
         state.deleteIDs.forEach(function (item, index, array) {
             let cIndex = state.shoppingList.map(x => x.id).indexOf(item)
             state.shoppingList.splice(cIndex, 1)
+            Toast({
+                message: '删除成功',
+                duration: 3000
+            });
         })
     },
     [types.SHOPPINGCART_SELECT_ITEM] (state, id) {
@@ -76,6 +89,16 @@ const mutations = {
             return item.checked;
         });
         state.buyBtnDisabled = oneSelected === false;
+        store.commit(types.SHOPPINGCART_DELETE_ARRAY);
+        store.commit('CALCULATE_TOTAL_PRICE')
+    },
+    [types.CALCULATE_TOTAL_PRICE] (state) {
+        let totalPrice = 0
+        state.deleteIDs.forEach(function (item, index, array) {
+            let cIndex = state.shoppingList.map(x => x.id).indexOf(item)
+            totalPrice += Number(state.shoppingList[cIndex].payment)
+        })
+        state.totalPrice = totalPrice
     },
     [types.SHOPPINGCART_SELECT_ALL] (state) {
         state.shoppingList.forEach(function (item) {
