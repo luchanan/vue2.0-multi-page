@@ -102,9 +102,11 @@ const mutations = {
     },
     [types.SHOPPINGCART_SELECT_ALL] (state) {
         state.shoppingList.forEach(function (item) {
-            item.checked = !state.checkAll;
+            item.checked = !state.checkAll
         });
-        state.checkAll = !state.checkAll;
+        state.checkAll = !state.checkAll
+        store.commit(types.SHOPPINGCART_DELETE_ARRAY)
+        store.commit('CALCULATE_TOTAL_PRICE')
         // 没有一个被选中
         state.buyBtnDisabled = state.checkAll === false;
     },

@@ -20,7 +20,7 @@ npm install
 # 开发运行环境;运行命令后，浏览器自动打开http://localhost:8080/views/index.html
 npm run dev
 
-# 开发完成后打包命令，会生成dist文件夹，不要在本地打开，请安装类似http-server来运行
+# 开发完成后打包命令，会生成dist文件夹，不要在本地打开，请安装类似http-server来运行(dist后js/css／api路径会指向我的github，可以在config／index.js下修改assetsPublicPath)
 npm run build
 
 ```
@@ -38,6 +38,8 @@ npm run build
 	- [sass基本语法](http://www.w3cplus.com/sassguide/)
 
 ## 遇到的问题 ##
+
+- 试用网站多语言支持(R5)
 
 - 刚开始装上vue-cli，发现eslint语法太过严格（定义未使用，要多少个空格，结尾要空行等），所以进行适当调整（M4）
 
@@ -79,7 +81,7 @@ npm run build
 
 - iscroll5.2 在谷歌V56模拟器或者真机不能滑动的解决方案(M28）
  
-> 以上括号数字代表note/byluchanan.docx（没有特殊说明都是这个文件）里面的问题序号（蓝色下划线部分），更多详情看note文件下
+> 以上括号数字代表note/byluchanan.docx（没有特殊说明都是这个文件）里面的问题序号（蓝色下划线部分），R*代表.md文件名序号，更多详情看note文件下
 
 > 由于docx在git对比的不方便性，于2017/3/3 21:27结束编写，之后的问题以.md方式记录，放在note下
 

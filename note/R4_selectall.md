@@ -36,6 +36,10 @@ const state = {
 ```
 但是如果没有checkbox被点击呢？
 
+### 方法二
+
+在返回的数据上加上checked标志
+
 参考
 
 http://stackoverflow.com/questions/33571382/check-all-checkboxes-vuejs
