@@ -51,13 +51,13 @@ export default{
         },
         changeLanguage: function (item) {
             const lang = item.lang
-            i18n.locale = lang
+            i18n.locale = lang // 设置语言
             console.log(this.$t('setting.logout'))
         }
     },
     created: function () {
         this.$store.dispatch('setPageInfo', {
-            headerTitle: '设置',
+            headerTitle: this.$t('setting.topTitle'),
             left: {className: 'back'},
             'right': {hide: true}
         })
