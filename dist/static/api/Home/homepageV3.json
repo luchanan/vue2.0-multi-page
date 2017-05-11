@@ -1,0 +1,477 @@
+{
+  "error_code": "0000",
+  "error_msg": "OK",
+  "banner_list": [
+    {
+      "image": "../static/api/home/images/banner2.jpg",
+      "url": "http://www.frontsucai.com/views/activity/american_2.html",
+      "app_url": {
+        "page": "WEB_VIEW",
+        "param": {
+          "url": "http://www.frontsucai.com/views/activity/american_2.html"
+        }
+      },
+      "title": "美国活动页2",
+      "profile": "美国活动页2",
+      "product_id": "",
+      "destination_id": "",
+      "themes_id": "",
+      "position": "banner",
+      "web_url": "",
+      "data_type": "0",
+      "display_type": "0"
+    },
+    {
+      "image": "../static/api/home/images/banner1.jpg",
+      "url": "http://www.frontsucai.com/views/activity/canyon.html",
+      "app_url": {
+        "page": "WEB_VIEW",
+        "param": {
+          "url": "http://www.frontsucai.com/views/activity/canyon.html"
+        }
+      },
+      "title": "大峡谷活动页",
+      "profile": "大峡谷活动页",
+      "product_id": "",
+      "destination_id": "",
+      "themes_id": "",
+      "position": "banner",
+      "web_url": "",
+      "data_type": "0",
+      "display_type": "0"
+    }
+  ],
+  "line_list": [
+    {
+      "image": "../static/api/home/images/r1.jpg",
+      "url": "app/views/activity/lm_line.html",
+      "app_url": {
+        "page": "WEB_VIEW",
+        "param": {
+          "url": "app/views/activity/lm_line.html"
+        }
+      },
+      "title": "",
+      "profile": "zhuanqu",
+      "product_id": "",
+      "destination_id": "",
+      "themes_id": "",
+      "position": "lm_line",
+      "web_url": "",
+      "data_type": "0",
+      "display_type": "0"
+    },
+    {
+      "image": "../static/api/home/images/r2.jpg",
+      "url": "app/views/activity/activity20161101.html",
+      "app_url": {
+        "page": "WEB_VIEW",
+        "param": {
+          "url": "app/views/activity/activity20161101.html"
+        }
+      },
+      "title": "",
+      "profile": "tuijian",
+      "product_id": "",
+      "destination_id": "",
+      "themes_id": "",
+      "position": "line",
+      "web_url": "",
+      "data_type": "0",
+      "display_type": "0"
+    }
+  ],
+  "data_list": [
+    {
+      "id": "13",
+      "pid": "",
+      "url": "",
+      "title": "推荐目的地",
+      "profile": "",
+      "title_hide": "",
+      "position": "",
+      "display_type": "3",
+      "data_type": "2",
+      "destination_id": "",
+      "web_url": "",
+      "app_url": {
+        "page": "WEB_VIEW",
+        "param": {
+          "url": ""
+        }
+      },
+      "image": "0",
+      "data": [
+        {
+          "image": "../static/api/home/images/mu1.jpg",
+          "url": "/taiguo/puji/",
+          "app_url": {
+            "page": "DESTINATION",
+            "param": {
+              "id": "66",
+              "type": 1
+            }
+          },
+          "title": "普吉",
+          "profile": "",
+          "product_id": "",
+          "destination_id": "66",
+          "themes_id": "13",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0"
+        },
+        {
+          "image": "../static/api/home/images/mu2.jpg",
+          "url": "/taiguo/qingmai/",
+          "app_url": {
+            "page": "DESTINATION",
+            "param": {
+              "id": "64",
+              "type": 1
+            }
+          },
+          "title": "清迈",
+          "profile": "",
+          "product_id": "",
+          "destination_id": "64",
+          "themes_id": "13",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0"
+        },
+        {
+          "image": "../static/api/home/images/mu3.jpg",
+          "url": "/meiguo/saiban/",
+          "app_url": {
+            "page": "DESTINATION",
+            "param": {
+              "id": "69",
+              "type": 1
+            }
+          },
+          "title": "塞班",
+          "profile": "",
+          "product_id": "",
+          "destination_id": "69",
+          "themes_id": "13",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0"
+        },
+        {
+          "image": "../static/api/home/images/mu4.jpg",
+          "url": "/xinxilan/huanghouzhen/",
+          "app_url": {
+            "page": "DESTINATION",
+            "param": {
+              "id": "111",
+              "type": 1
+            }
+          },
+          "title": "皇后镇",
+          "profile": "",
+          "product_id": "",
+          "destination_id": "111",
+          "themes_id": "13",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0"
+        },
+        {
+          "image": "../static/api/home/images/mu5.jpg",
+          "url": "/malaixiya/Shaba/",
+          "app_url": {
+            "page": "DESTINATION",
+            "param": {
+              "id": "92",
+              "type": 1
+            }
+          },
+          "title": "沙巴",
+          "profile": "",
+          "product_id": "",
+          "destination_id": "92",
+          "themes_id": "13",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0"
+        },
+        {
+          "image": "../static/api/home/images/mu6.jpg",
+          "url": "/zhongguo/lijiang/",
+          "app_url": {
+            "page": "DESTINATION",
+            "param": {
+              "id": "68",
+              "type": 1
+            }
+          },
+          "title": "丽江",
+          "profile": "",
+          "product_id": "",
+          "destination_id": "68",
+          "themes_id": "13",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0"
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "pid": "",
+      "url": "",
+      "title": "当季热卖",
+      "profile": "",
+      "title_hide": "",
+      "position": "activity",
+      "display_type": "3",
+      "data_type": "1",
+      "destination_id": "",
+      "web_url": "",
+      "app_url": {
+        "page": "WEB_VIEW",
+        "param": {
+          "url": ""
+        }
+      },
+      "image": "0",
+      "data": [
+        {
+          "image": "../static/api/home/images/remai1.jpg",
+          "url": "/app/views/product/detail.php?id=149",
+          "app_url": {
+            "page": "PRODUCT",
+            "param": {
+              "id": "149"
+            }
+          },
+          "title": "皮皮岛早鸟版一日游",
+          "profile": "",
+          "product_id": "149",
+          "destination_id": "",
+          "themes_id": "25",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0",
+          "price": "399",
+          "sale_amount": "1773"
+        },
+        {
+          "image": "../static/api/home/images/remai2.jpg",
+          "url": "/app/views/product/detail.php?id=312",
+          "app_url": {
+            "page": "PRODUCT",
+            "param": {
+              "id": "312"
+            }
+          },
+          "title": "苏梅 涛岛南园岛浮潜一日游",
+          "profile": "",
+          "product_id": "312",
+          "destination_id": "",
+          "themes_id": "25",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0",
+          "price": "259",
+          "sale_amount": "451"
+        },
+        {
+          "image": "../static/api/home/images/remai3.jpg",
+          "url": "/app/views/product/detail.php?id=20",
+          "app_url": {
+            "page": "PRODUCT",
+            "param": {
+              "id": "20"
+            }
+          },
+          "title": "清迈出发 清莱白庙黑庙一日游",
+          "profile": "",
+          "product_id": "20",
+          "destination_id": "",
+          "themes_id": "25",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0",
+          "price": "109",
+          "sale_amount": "2695"
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "pid": "",
+      "url": "",
+      "title": "精选活动",
+      "profile": "",
+      "title_hide": "",
+      "position": "activity",
+      "display_type": "3",
+      "data_type": "0",
+      "destination_id": "",
+      "web_url": "",
+      "app_url": {
+        "page": "WEB_VIEW",
+        "param": {
+          "url": ""
+        }
+      },
+      "image": "0",
+      "data": [
+        {
+          "image": "../static/api/home/images/a1.jpg",
+          "url": "http://www.frontsucai.com/app/views/activity/zt_lj.html",
+          "app_url": {
+            "page": "WEB_VIEW",
+            "param": {
+              "url": "http://www.frontsucai.com/app/views/activity/zt_lj.html"
+            }
+          },
+          "title": "最美云南",
+          "profile": "",
+          "product_id": "",
+          "destination_id": "",
+          "themes_id": "27",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0"
+        },
+        {
+          "image": "../static/api/home/images/a2.jpg",
+          "url": "http://www.frontsucai.com/app/views/activity/qingmai.html",
+          "app_url": {
+            "page": "WEB_VIEW",
+            "param": {
+              "url": "http://www.frontsucai.com/app/views/activity/qingmai.html"
+            }
+          },
+          "title": "清迈活动页",
+          "profile": "",
+          "product_id": "",
+          "destination_id": "",
+          "themes_id": "27",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0"
+        },
+        {
+          "image": "../static/api/home/images/a3.jpg",
+          "url": "http://www.frontsucai.com/app/views/activity/american_1.html",
+          "app_url": {
+            "param": {
+              "name": "PACKAGE LIST"
+            },
+            "page": "PACKAGE"
+          },
+          "title": "美国活动页",
+          "profile": "",
+          "product_id": "",
+          "destination_id": "",
+          "themes_id": "27",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0"
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "pid": "",
+      "url": "",
+      "title": "精选路线",
+      "profile": "",
+      "title_hide": "",
+      "position": "activity",
+      "display_type": "2",
+      "data_type": "1",
+      "destination_id": "",
+      "web_url": "",
+      "app_url": {
+        "page": "WEB_VIEW",
+        "param": {
+          "url": ""
+        }
+      },
+      "image": "0",
+      "data": [
+        {
+          "image": "../static/api/home/images/l1.jpg",
+          "url": "/app/views/product/detail.php?id=23",
+          "app_url": {
+            "page": "PRODUCT",
+            "param": {
+              "id": "23"
+            }
+          },
+          "title": "清迈嘟嘟车环游古城半日游",
+          "profile": "",
+          "product_id": "23",
+          "destination_id": "",
+          "themes_id": "24",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0",
+          "price": "180",
+          "sale_amount": "26"
+        },
+        {
+          "image": "../static/api/home/images/l2.jpg",
+          "url": "/app/views/product/detail.php?id=175",
+          "app_url": {
+            "page": "PRODUCT",
+            "param": {
+              "id": "175"
+            }
+          },
+          "title": " 攀牙湾 骑大象 漂流 ATV 丛林飞跃一日游",
+          "profile": "",
+          "product_id": "175",
+          "destination_id": "",
+          "themes_id": "24",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0",
+          "price": "239",
+          "sale_amount": "243"
+        },
+        {
+          "image": "../static/api/home/images/l3.jpg",
+          "url": "/app/views/product/detail.php?id=304",
+          "app_url": {
+            "page": "PRODUCT",
+            "param": {
+              "id": "304"
+            }
+          },
+          "title": "塞班岛ATV半日游",
+          "profile": "",
+          "product_id": "304",
+          "destination_id": "",
+          "themes_id": "24",
+          "position": "",
+          "web_url": "",
+          "data_type": "0",
+          "display_type": "0",
+          "price": "299",
+          "sale_amount": "10"
+        }
+      ]
+    }
+  ]
+}
