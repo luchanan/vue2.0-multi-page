@@ -27,13 +27,15 @@ npm run build
 	- [https://github.com/bluefox1688/vue-cli-multi-page](https://github.com/bluefox1688/vue-cli-multi-page)（参考多页面配置整体思想）
 	- [https://github.com/jiananle/vue-multi-page](https://github.com/jiananle/vue-multi-page)（参考整个文件命名架构，比较适合我这种情况）
 	- [https://github.com/jarvan4dev/vue-multi-page](https://github.com/jarvan4dev/vue-multi-page)（参考以模块名作为名字输出，避免以模块名里面的文件名作为名字输出导致覆盖）
-	
+
 2. 熟悉相关语法（基本了解就好，毕竟做项目的时候才会发现更多的问题）
 	- [es6基本使用方法](http://es6.ruanyifeng.com/)
 	- [vue2.0官网](https://cn.vuejs.org/v2/guide/)，[vue2 api](https://cn.vuejs.org/v2/api/)
 	- [sass基本语法](http://www.w3cplus.com/sassguide/)
 
 ## 遇到的问题 ##
+
+- [基于vue-cli，使用vue2.3.3 + webpack2 + es6 + vuex2.3.1 + scss的脚手架](https://github.com/luchanan/vue2.0-multi-page/tree/vue2.3-multiple-page)
 
 - 试用网站多语言支持(R5)
 
@@ -76,7 +78,7 @@ npm run build
 - dev模式下插入到html文件的script标签顺序没问题（例如，先是vendor.js里面包含vue,vuex集合，然后再是index.js），但是build后，顺序是反过来的，导致Cannot read property 'call' of undefined报错(M25）
 
 - iscroll5.2 在谷歌V56模拟器或者真机不能滑动的解决方案(M28）
- 
+
 > 以上括号数字代表note/byluchanan.docx（没有特殊说明都是这个文件）里面的问题序号（蓝色下划线部分），R*代表.md文件名序号，更多详情看note文件下
 
 > 由于docx在git对比的不方便性，于2017/3/3 21:27结束编写，之后的问题以.md方式记录，放在note下
@@ -84,14 +86,14 @@ npm run build
 ## 目前完成的模块 ##
 
 - 首页
- 
+
 - 登录、客服页
 
 - 我的主页
 
 - 消息列表、我的收藏
 
-- 目的地选择、购物车列表 
+- 目的地选择、购物车列表
 
 
 ### 说明
