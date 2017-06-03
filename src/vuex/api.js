@@ -98,7 +98,7 @@ export default {
      * 删除购物车
      */
     deleteShoppingCartList: function (parmas, cb) {
-        axios.get(url + 'order/deleteShopCart.json?t=' + new Date() * 1 + '&callback=?').then(function (res) {
+        axios.get('/shopping/delete').then(function (res) {
             if (res.status >= 200 && res.status < 300) {
                 cb(res.data, parmas)
             }

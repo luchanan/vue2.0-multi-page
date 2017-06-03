@@ -10,6 +10,7 @@ Vue.use(VueLazyload)
 Vue.use(vueResource)
 Vue.use(Mint)
 Vue.use(VueI18n)
+import mock from 'js/mock/index'
 import cn from '../locales/zh-CN.json'
 import en from '../locales/en-US.json'
 const messages = {

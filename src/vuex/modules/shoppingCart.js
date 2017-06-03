@@ -38,7 +38,15 @@ const actions = {
                 if (action === 'confirm') {
                     api.deleteShoppingCartList(state.deleteIDs, function (res) {
                         // commit只能接受两个参数，想传多个参数的话，可以在第二个参数以array or object的方式传入
-                        commit(types.SHOPPINGCART_DELETE_SELECT, res);
+                        console.log(res)
+                        if (res.error_code === '0000') {
+                            commit(types.SHOPPINGCART_DELETE_SELECT, res)
+                        } else {
+                            Toast({
+                                message: res.error_msg,
+                                duration: 3000
+                            });
+                        }
                     })
                 }
             }
@@ -68,7 +76,7 @@ const mutations = {
             let cIndex = state.shoppingList.map(x => x.id).indexOf(item)
             state.shoppingList.splice(cIndex, 1)
             Toast({
-                message: '删除成功',
+                message: res.error_msg,
                 duration: 3000
             });
         })
