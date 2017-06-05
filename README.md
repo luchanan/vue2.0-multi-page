@@ -37,7 +37,7 @@ npm run build
 
 - mockjs模拟接口数据返回（Demo：删除购物车功能）
 
-- [基于vue-cli，使用vue2.3.3 + webpack2 + es6 + vuex2.3.1 + scss的脚手架](https://github.com/luchanan/vue2.0-multi-page/tree/vue2.3-multiple-page)
+- [基于vue-cli，使用vue2.3.3 + webpack2 + es6 + vuex2.3.1 + scss的脚手架](https://github.com/luchanan/vue_cli_multiple_page)
 
 - 试用网站多语言支持(R5)
 
