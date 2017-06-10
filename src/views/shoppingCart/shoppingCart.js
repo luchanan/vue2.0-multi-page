@@ -1,7 +1,7 @@
 import { Vue, $, Common } from 'js/base'
 import myHeader from '../../components/my/my-header.vue'
 import store from '../../vuex/store'
-require('../collect/scss/collect.scss')
+require('../center/scss/collect.scss')
 import shoppingCart from './shoppingCart.vue'
 var homeVue = new Vue({
     el: '#shoppingCart',
