@@ -1,5 +1,5 @@
 <template>
-  <div class="container padding_tb_120 my">
+  <div class="container padding_b_120 my">
     <div class="summary margin_b_20 bg_white">
       <a class="flex flex_v_center info" :href="isLogin?'info.html':'login.html'">
         <div class="photo"><img v-bind:src="isLogin?loginImgSrc[0]:loginImgSrc[1]"></div>
@@ -22,7 +22,7 @@
         <a href="" data-font="待付款" class="paying"><em :data-count="isLogin?my.need_pay_amount:0"></em></a>
       </li>
       <li class="flex_item">
-        <a href="center.html#/becomment" data-font="待评价" class="comment"><em :data-count="isLogin?my.need_comment_amount:0"></em></a>
+        <router-link to="/becomment" data-font="待评价" class="comment"><em :data-count="isLogin?my.need_comment_amount:0"></em></router-link>
       </li>
     </ul>
     <ul class="item margin_b_20 bg_white">
@@ -46,16 +46,16 @@
     </ul>
     <ul class="item margin_b_20 bg_white">
       <li>
-        <a href="collect.html" class="arrow_right flex flex_v_center collect">
+        <router-link to="/collect" class="arrow_right flex flex_v_center collect">
           <h1 class="flex_item">我的收藏</h1>
-        </a>
+        </router-link>
       </li>
     </ul>
     <ul class="item margin_b_20 bg_white">
       <li>
-        <a href="service.html" class="arrow_right flex flex_v_center service">
+        <router-link to="/service" class="arrow_right flex flex_v_center service">
           <h1 class="flex_item">客服电话</h1>
-        </a>
+        </router-link>
       </li>
     </ul>
     <common-footer footerIndex="3"></common-footer>
@@ -64,7 +64,7 @@
 <script>
 import { Vue, $, Common, wx } from 'js/base'
 import {mapGetters} from 'vuex'
-import CommonFooter from '../../components/common/footer.vue'
+import CommonFooter from 'components/common/footer.vue'
 export default{
     data () {
         return {
@@ -78,15 +78,18 @@ export default{
                 let result = await this.$store.dispatch('gerCenterData')
                 this.$store.dispatch('getMessageCount', result.notification_amount)
             })()
-            /* this.$http.get('../../../static/api/center/getCenter.json').then((response) => {
-                response.data['isLogin'] = Common.isLogin()
-                console.log(response.data)
-                this.my = response.data
-                // 触发getMessageCount事件，并且传递参数
-                this.$store.dispatch('getMessageCount', response.data.notification_amount)
-            }, (response) => {
-                console.log(response)
-            }) */
+        }
+    },
+    created () {
+        this.setPageInfo()
+    },
+    methods: {
+        setPageInfo () {
+            this.$store.dispatch('setPageInfo', {
+                headerTitle: '我的',
+                left: '',
+                right: ''
+            })
         }
     },
     computed: {

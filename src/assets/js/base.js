@@ -4,10 +4,10 @@ import Common from './Common'
 import wx from 'wx'
 import Mint from 'mint-ui';
 import VueI18n from 'vue-i18n'
-var vueResource = require('vue-resource')
 import VueLazyload from 'vue-lazyload'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
 Vue.use(VueLazyload)
-Vue.use(vueResource)
 Vue.use(Mint)
 Vue.use(VueI18n)
 import mock from 'js/mock/index'
@@ -26,5 +26,5 @@ const i18n = new VueI18n({
 require('scss/common.scss')
 import 'mint-ui/lib/style.css';
 module.exports = {
-    Vue, $, Common, wx, i18n
+    Vue, $, Common, wx, i18n, VueRouter
 }

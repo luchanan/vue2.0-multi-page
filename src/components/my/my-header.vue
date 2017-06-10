@@ -33,14 +33,14 @@
           },
           setLeftHeaderUrl: function () {
               if (this.$store.getters.getPageInfo.left === '') {
-                  return 'setting.html'
+                  return '/views/center.html#/setting'
               } else {
                   return 'javascript:void(0)'
               }
           },
           setRightHeaderUrl: function () {
               if (this.$store.getters.getPageInfo.right.userFont === undefined) {
-                  return 'messageList.html'
+                  return '/views/center.html#/message'
               } else {
                   return 'javascript:void(0)'
               }

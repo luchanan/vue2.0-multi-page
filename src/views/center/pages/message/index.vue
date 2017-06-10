@@ -1,5 +1,5 @@
 <template>
-  <div class="container padding_t_122 messageList">
+  <div class="container messageList">
     <ul class="bg_white">
       <li v-for="list in listData">
         <a href="javascript:void(0)">
@@ -19,8 +19,8 @@
 <script>
 import {Common} from 'js/base'
 import MugenScroll from 'vue-mugen-scroll'
-import listBottom from '../../components/common/list-bottom.vue'
-import filters from '../../assets/js/filters'
+import listBottom from 'components/common/list-bottom.vue'
+import filters from 'assets/js/filters'
 import {mapGetters} from 'vuex'
 export default{
     data () {
@@ -72,3 +72,52 @@ export default{
     }
 }
 </script>
+<style lang="scss">
+  @import "../../../../assets/scss/base/necessary.scss";
+  .messageList {
+    li {
+      padding-left: px2rem(24);
+      &:last-child {
+        a {
+          border-bottom: none;
+        }
+      }
+    }
+    a {
+      @include px2px(font-size, 30);
+      color: $color_424242;
+      padding: px2rem(20) px2rem(24) px2rem(20) 0;
+      border-bottom: solid 1px $color_E1E9F0;
+      .time {
+        @include px2px(font-size, 22);
+        color: $color_9E9E9E;
+      }
+      .detail {
+        padding-top: px2rem(10);
+      }
+      .title {
+        span {
+          @extend .relative;
+          &[data-count]:after {
+            content: attr(data-count);
+            position: absolute;
+            right: px2rem(-12);
+            top: px2rem(-6);
+            font-size: 9px;
+            width: px2rem(18);
+            height: px2rem(18);
+            line-height: px2rem(18);
+            text-align: center;
+            text-indent: -9999em;
+            border-radius: 50%;
+            color: #ffffff;
+            background: $color_FC5D7B;
+          }
+          &[data-count='0']:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+</style>
