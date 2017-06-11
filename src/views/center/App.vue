@@ -17,7 +17,6 @@ export default {
     },
     methods: {
         routeChange (to, from) {
-            console.log(this)
         }
     }
 }

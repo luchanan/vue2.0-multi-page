@@ -1,0 +1,103 @@
+@charset "utf-8";
+@import "../../../assets/scss/base/necessary.scss";
+$color_e1e9f0:#e1e9f0;
+.collect{
+  a{
+    color: $color_424242;
+  }
+  li{
+    @include px2px(font-size,30);
+    border-bottom: solid 1px $color_E1E9F0;
+    &:last-child{
+      border-bottom: none;
+    }
+    h1{
+      @include clamp(2);
+    }
+  }
+  .itemInfo{
+    /* flex 纵向从上往下排列，用于上面是标题，底部是价格类似情况*/
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .bottom{
+    align-items: baseline;
+    @include px2px(font-size,24);
+    .price{
+      @include px2px(font-size,32);
+      color:$color_FC5D7B;
+      &:before{
+        content: '¥';
+        display: inline-block;
+        margin-right: px2rem(7);
+        @include px2px(font-size,22);
+        vertical-align: baseline;
+      }
+    }
+    .num{
+      color:$color_9E9E9E;
+    }
+  }
+  .bg_lazyload{
+    width:px2rem(184);
+    height:px2rem(184);
+    margin-right: px2rem(20);
+    img{
+      width:100%;
+      height: 100%;
+    }
+  }
+  /*购物车列表样式*/
+  &.shoppingcart{
+    .bg{
+      width: px2rem(180);
+      height: px2rem(180);
+    }
+    .sum{
+      margin-top: px2rem(4);
+      color:$color_8FA0B1;
+      @include px2px(font-size,24);
+    }
+    h1{
+      @include px2px(font-size,28);
+    }
+    .price{
+      line-height: 1.2;
+    }
+    .mr10{
+      margin-right: px2rem(18);
+    }
+    .num{
+      .mr10:last-child{
+        margin: 0;
+      }
+    }
+    .action{
+      bottom: 0;
+      padding: 0 0 0 px2rem(24);
+      z-index: 9;
+      .flex_v_center{
+        justify-content: space-between;
+      }
+      .price{
+        @extend %pink;
+        @include px2px(font-size,30);
+        margin-right: px2rem(40);
+      }
+      .btn{
+        background: $color_FC5D7B;
+        &:disabled{
+          background: $color_E1E9F0;
+        }
+        @include px2px(font-size,32);
+        color: $white;
+        padding: px2rem(29) 0;
+        width: px2rem(176);
+      }
+      .flex_item{
+        text-align: right;
+      }
+    }
+  }
+}
+

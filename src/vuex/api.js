@@ -80,6 +80,21 @@ export default {
         })
     },
     /**
+     * 待点评
+     */
+    getBeCommentList: function (currentPage, cb) {
+        return new Promise((resolve, reject) => {
+            axios.get('/center/waitForCommentList').then(function (res) {
+                if (res.status >= 200 && res.status < 300) {
+                    cb(res.data)
+                    resolve(res.data)
+                }
+            }).catch((error) => {
+                reject(error)
+            })
+        })
+    },
+    /**
      * 获取我的购物车列表
      */
     getShoppingCartList: function (currentPage, cb) {

@@ -33,9 +33,11 @@ npm run build
 	- [vue2.0官网](https://cn.vuejs.org/v2/guide/)，[vue2 api](https://cn.vuejs.org/v2/api/)
 	- [sass基本语法](http://www.w3cplus.com/sassguide/)
 
-## 遇到的问题 ##
+## 遇到的问题及功能 ##
 
-- mockjs模拟接口数据返回（Demo：删除购物车功能）
+- 多页面SPA的组织架构重整 UPDATAE 201.6.11
+
+- mockjs模拟接口数据返回（Demo：删除购物车功能， 待点评列表）
 
 - [基于vue-cli，使用vue2.3.3 + webpack2 + es6 + vuex2.3.1 + scss的脚手架](https://github.com/luchanan/vue_cli_multiple_page)
 
@@ -89,13 +91,13 @@ npm run build
 
 - 首页
 
-- 登录、客服页
+- 登录
 
-- 我的主页
+- 个人中心SPA包含我的、消息列表、我的收藏、客服页，设置，待点评
 
-- 消息列表、我的收藏
+- 目的地选择
 
-- 目的地选择、购物车列表
+- 购物车列表
 
 
 ### 说明

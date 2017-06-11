@@ -1,37 +1,48 @@
 <template>
-  <div class="becomment">
-    <ul>
-      <li>
-        <a href="">
-          <h2 class="title">清迈</h2>
+  <div>
+    <ul class="becomment">
+      <li v-for="item in list" :key="item">
+        <a :href="item.id">
+          <h2 class="title">{{item.product_name}}</h2>
           <div class="flex">
-            <div class="flex_item"><time>下单日期：2016-09-27 18:22:55</time></div>
-            <div class="goComment">去点评<i class="iconfont icon-arrow"></i></div>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <h2 class="title">545</h2>
-          <div class="flex">
-            <div class="flex_item"><time>下单日期：2016-09-27 18:22:55</time></div>
+            <div class="flex_item"><time>下单日期：{{item.order_date}}</time></div>
             <div class="goComment">去点评<i class="iconfont icon-arrow"></i></div>
           </div>
         </a>
       </li>
     </ul>
+    <mugen-scroll :handler="fetchData" :should-handle="!loading">
+      <list-bottom ref="listBottom"></list-bottom>
+    </mugen-scroll>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import MugenScroll from 'vue-mugen-scroll'
+import listBottom from 'components/common/list-bottom.vue'
 export default {
     name: 'becomment',
     data: () => ({
-        test: '1'
+        loading: false,
+        first: true
     }),
     mounted () {
         this.setPageInfo()
+    },
+    components: {
+        MugenScroll,
+        listBottom
+    },
+    computed: {
+        ...mapState({
+            list: (state, getters) => {
+                return state.beComment.beCommentList
+            },
+            hasMore: (state, getters) => {
+                return state.beComment.hasMore
+            }
+        })
     },
     methods: {
         setPageInfo () {
@@ -40,6 +51,31 @@ export default {
                 left: {className: 'back'},
                 'right': {hide: true}
             })
+        },
+        fetchData () {
+            if (!this.loading) {
+                this.loading = true;
+                if (!this.hasMore) {
+                    this.finishAction()
+                    return false
+                }
+                (async () => {
+                    await this.$store.dispatch('getBeCommentList')
+                    if (!this.$store.state.beComment.hasMore) {
+                        this.finishAction()
+                        return false
+                    } else if (this.first && this.$store.state.beComment.hasMore) {
+                        this.fetchData()
+                        this.first = false
+                    }
+                })()
+                this.loading = false
+            }
+        },
+        finishAction () {
+            this.loading = true
+            this.$refs.listBottom.$el.children[0].classList.add('finished')
+            this.$refs.listBottom.$el.children[0].textContent = this.$refs.listBottom.$data.finishText
         }
     }
 }
@@ -56,9 +92,9 @@ export default {
       @include px2px(font-size,24);
     }
     .title{
-      padding-top: 0;
-      padding-bottom: 0.2666666667rem;
+      margin-bottom:px2rem(10);
       @include px2px(font-size,30);
+      @include clamp(2);
     }
     .goComment{
       color: $color_55C1DD;

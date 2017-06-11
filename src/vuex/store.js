@@ -8,6 +8,7 @@ import index from './modules/index'
 import collect from './modules/collect'
 import destinationIndex from './modules/destinationIndex'
 import shoppingCart from './modules/shoppingCart'
+import beComment from './modules/center/becomment'
 
 Vue.use(Vuex)
 
@@ -20,7 +21,8 @@ export default new Vuex.Store({
         login,
         collect,
         destinationIndex,
-        shoppingCart
+        shoppingCart,
+        beComment
     },
     strict: process.env.NODE_ENV !== 'production'// 线上环境关掉
 })

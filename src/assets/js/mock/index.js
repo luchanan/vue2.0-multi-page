@@ -7,4 +7,5 @@ function addToMock (api) {
     })
 }
 addToMock(shopping)
+addToMock(center)
 export default Mock

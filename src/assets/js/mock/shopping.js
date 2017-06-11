@@ -1,7 +1,7 @@
 import Mock from 'mockjs'
 const shopping = [
     {
-        path: '/shopping/delete',
+        path: '/center/waitForCommentList',
         data: {
             'error_code|1': ['0000', '1000'],
             'error_msg': function () {
