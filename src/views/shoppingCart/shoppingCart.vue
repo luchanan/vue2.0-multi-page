@@ -46,7 +46,7 @@
 import { Vue, $, Common, wx } from 'js/base'
 import {mapState} from 'vuex'
 import MugenScroll from 'vue-mugen-scroll'
-import listBottom from '../../components/common/list-bottom.vue'
+import listBottom from 'components/common/list-bottom.vue'
 export default{
     data () {
         return {
