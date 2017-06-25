@@ -18,7 +18,10 @@ const router = new VueRouter({
         },
         {
             path: '/becomment',
-            component: beComment
+            component: beComment,
+            meta: {
+                requireAuth: true // 进入路由需要登录
+            }
         },
         {
             path: '/service',
@@ -39,6 +42,13 @@ const router = new VueRouter({
     ]
 })
 //  to do登录拦截
+router.beforeEach((to, from, next) => {
+    if(to.meta.requireAuth){
+        if(store){
+
+        }
+    }
+})
 new Vue({
     router,
     store,

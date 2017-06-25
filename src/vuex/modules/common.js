@@ -7,7 +7,8 @@ const state = {
     left: '',
     right: '',
     type: '',
-    shoppingCartNum: 0
+    shoppingCartNum: 0,
+    token: null
 }
 
 const actions = {
@@ -26,6 +27,9 @@ const getters = {
 }
 
 const mutations = {
+    [types.SET_TOKEN] (state, params) {
+        state = Object.assign(state, params)
+    },
     [types.PAGE_SET_INFO] (state, settings) {
         state = Object.assign(state, settings)
     },

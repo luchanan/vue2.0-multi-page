@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import $ from 'jquery'
-import Common from './Common'
+import Common from './common'
 import wx from 'wx'
 import Mint from 'mint-ui';
 import VueI18n from 'vue-i18n'
 import VueLazyload from 'vue-lazyload'
 import VueRouter from 'vue-router'
+import VueCookie from 'vue-cookie'
+Vue.use(VueCookie)
 Vue.use(VueRouter)
 Vue.use(VueLazyload)
 Vue.use(Mint)
