@@ -44,8 +44,19 @@ const router = new VueRouter({
 //  to do登录拦截
 router.beforeEach((to, from, next) => {
     if (to.meta.requireAuth) {
-        if (store) {
+        console.log(store.state.common.token)
+        if (store.state.common.token !== null) {
+            next()
+        } else {
+            // token没有进入登录页面
+            next({
+                path: '/login',
+                query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+            })
         }
+    } else {
+        // 不需要登录， 一定要，否者进入不了路由
+        next()
     }
 })
 new Vue({

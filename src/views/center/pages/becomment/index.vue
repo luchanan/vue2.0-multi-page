@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="becomment">
-      <li v-for="item in list" :key="item">
+      <li v-for="item in list" :key="item.id">
         <a :href="item.id">
           <h2 class="title">{{item.product_name}}</h2>
           <div class="flex">
