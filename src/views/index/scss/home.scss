@@ -10,6 +10,9 @@ html,body{
   line-height: px2rem(40);
   padding:px2rem(60) 0 px2rem(34) px2rem(30);
 }
+.swiper-wrapper {
+  height: 100%;
+}
 .item{
   padding-bottom: px2rem(74);
   border-bottom: solid 1px $color_DBDBDB;

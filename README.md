@@ -49,7 +49,7 @@ npm run build
 
 - .vue如何使用组件（A4）
 
-- .vue使用sass,注意是lang='scss'不是lang='sass'（A5）
+- .vue使用sass,注意是lang='scss'~~不是lang='sass'~~ 也可以是lang='sass （A5）
 
 - 如何npm一个带版本号的插件（A8）
 

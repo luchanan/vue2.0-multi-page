@@ -46,6 +46,7 @@
   }
   &[lazy=loaded]{
     @extend .cover;
+    height: 100%;
   }
 }
 /*img lazyload style*/
