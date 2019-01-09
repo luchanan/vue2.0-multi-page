@@ -1,0 +1,17 @@
+{
+    "error_code": "0000",
+    "error_msg": "OK",
+    "data": {
+        "user_id": "1",
+        "username": "phone_13800138000",
+        "nickname": "phone_13800138000",
+        "image": "",
+        "phone": "13800138000",
+        "phone_verify": "2",
+        "email": "",
+        "taobao_phone": "13800138000",
+        "taobao_phone_verify": "1",
+        "token": "112"
+    },
+    "execute_time": 0.689
+}

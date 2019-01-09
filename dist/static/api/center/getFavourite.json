@@ -1,0 +1,41 @@
+{
+    "error_code": "0000",
+    "error_msg": "OK",
+    "favourite_list": [
+        {
+            "name": "阿凡达号 专线攀牙湾豪华帆船一日游",
+            "sale_amount": "211",
+            "price": "0.00",
+            "status": "2",
+            "sale_id": "234",
+            "image": "../static/api/center/images/collect1.jpg"
+        },
+        {
+            "name": "清迈人妖秀门票 酒店接送",
+            "sale_amount": "176",
+            "price": "95.00",
+            "status": "1",
+            "sale_id": "30",
+            "image": "../static/api/center/images/collect2.jpg"
+        },
+        {
+            "name": "清迈 Let's Relax Spa泰式按摩",
+            "sale_amount": "105",
+            "price": "109.00",
+            "status": "1",
+            "sale_id": "39",
+            "image": "../static/api/center/images/collect3.jpg"
+        },
+        {
+            "name": "泰国清迈到pai拜县往返包车一日游 酒店接送",
+            "sale_amount": "0",
+            "price": "0.00",
+            "status": "2",
+            "sale_id": "28",
+            "image": "../static/api/center/images/collect45.jpg"
+        }
+    ],
+    "last_index": 0,
+    "total_index": "1",
+    "execute_time": 0.287
+}
