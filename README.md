@@ -1,4 +1,4 @@
-# Vue-cli(2.0) 多页面开发实战（逐步开发中...）
+# Vue-cli(2.0) 多页面开发实战
 
 > 由于之前主要使用jquery方式开发，现在想换一种方式，使用MVVM开发(感觉vue跟我之前用的angular1.X差不多类似)，所以在开发中会遇到很多问题，借此来记录一下；或者有很多不足，又或者里面可能存在些错误，anyway，请多多指教，共勉。
 
@@ -35,6 +35,24 @@ npm run build
 
 ## 遇到的问题及功能 ##
 
+- 引入资源路径不要写相对路径, 使用base.config.js中定义的alias，如index.vue
+
+```
+import CommonFooter from '../../components/common/footer.vue''  => import CommonFooter from 'components/common/footer.vue'
+
+<style lang='scss' scoped>
+@import "../../assets/scss/base/necessary.scss"; => @import "~assets/scss/base/necessary.scss";
+</style>
+```
+
+home.scss
+
+```
+@import "../../../assets/scss/base/necessary.scss"; => @import "~assets/scss/base/necessary.scss";
+
+background: url(../../assets/images/icon/loading.gif)  => background: url('~assets/images/icon/loading.gif')
+```
+
 - 多页面SPA的组织架构重整 UPDATAE 201.6.11
 
 - mockjs模拟接口数据返回（Demo：删除购物车功能， 待点评列表）
@@ -70,6 +88,11 @@ npm run build
 - set使用导致html{{}}无法输出2层 以上的object(M15）
 
 - img:src绑定assets下图片404问题(M9）
+
+```
+// 使用
+<img src="~@assets/image/***.png">
+```
 
 - 使用filters(M12）
 

@@ -53,6 +53,7 @@
 import CommonFooter from '../../components/common/footer.vue'
 import {mapGetters} from 'vuex'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 import store from '../../vuex/store'
 export default{
     data () {
