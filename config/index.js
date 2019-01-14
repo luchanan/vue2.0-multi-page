@@ -8,7 +8,7 @@ module.exports = {
         assetsRoot: path.resolve(__dirname, '../dist'),
         assetsSubDirectory: 'static',
         // assetsPublicPath: '/',
-        assetsPublicPath: 'https://github.com/luchanan/vue2.0-multi-page/dist/',
+        assetsPublicPath: 'https://luchanan.github.io/vue2.0-multi-page/dist/',
         productionSourceMap: false,
         // Gzip off by default as many popular static hosts such as
         // Surge or Netlify already gzip all static assets for you.
